@@ -1,7 +1,7 @@
 # --^_^-- coding:utf-8 --^_^--
 # @Remark:登录测试数据
 
-from nmmp.pages.datas.comm_datas import web_login_url
+from nmmp_manage.common.comm_datas import web_login_url
 
 # 正常场景
 success_data = {"user": "5104", "pwd": "z123456", "check": web_login_url}

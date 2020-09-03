@@ -16,7 +16,7 @@ screenshot_dir = os.path.join(base_dir, "output/screenshots")
 testdatas_dir = os.path.join(base_dir, "pages/datas")
 
 # 测试用例目录
-testcases_dir = os.path.join(base_dir, "case")
+testcases_dir = os.path.join(base_dir, "cases")
 
 # 测试报告目录
 htmlreport_dir = os.path.join(base_dir, "output/reports")

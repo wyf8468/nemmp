@@ -27,7 +27,6 @@ suites = unittest.TestSuite()    # 套件实例化
 loader = unittest.TestLoader()   # 收集器实例化
 
 # 将收集到的用例，放到测试套件当中。
-print(testcases_dir)
 suites.addTests(loader.discover(testcases_dir))
 
 # 二、将测试报告记录到HTML文件

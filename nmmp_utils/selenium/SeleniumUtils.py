@@ -1,13 +1,13 @@
 # --^_^-- coding:utf-8 --^_^--
 # @Remark:webdriver的封装
 
-from nmmp.utils.log import logUtil
+from nmmp_utils.log import logUtil
 import logging
 import time
 import datetime
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from nmmp.common.dir_config import screenshot_dir
+from nmmp_manage.common.dir_config import screenshot_dir
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.select import Select
 

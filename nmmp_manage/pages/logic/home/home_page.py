@@ -1,5 +1,5 @@
-from nmmp.common.SeleniumUtils import seleniumUtils
-from nmmp.pages.element.home.home_page_locator import HomePageLocator as home
+from nmmp_utils.selenium.SeleniumUtils import seleniumUtils
+from nmmp_manage.pages.element.home.home_page_locator import HomePageLocator as home
 import logging
 
 

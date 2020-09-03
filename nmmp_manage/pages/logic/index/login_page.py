@@ -1,13 +1,14 @@
 # --^_^-- coding:utf-8 --^_^--
 # @Remark:登录页面
 
-from nmmp.common.SeleniumUtils import seleniumUtils
-from nmmp.pages.element.index.login_page_locator import LoginPageLocator as login
+from nmmp_utils.selenium.SeleniumUtils import seleniumUtils
+from nmmp_manage.pages.element.index.login_page_locator import LoginPageLocator as login
 
 
 class LoginPage(seleniumUtils):
+
     # 登录功能
-    def login(self, username, pwd, rand):
+    def login(self, username, pwd, rand="1111"):
         self.input_text(login.user_loc, "登录页面_输入用户名", username)
         self.input_text(login.pwd_loc, "登录页面_输入密码", pwd)
         self.input_text(login.rand_loc, "登录页面_输入密码", rand)

@@ -5,6 +5,10 @@ from selenium.webdriver.common.by import By
 
 
 class LoginPageLocator:
+
+    def __init__(self):
+        pass
+
     # 用户名输入框
     user_loc = (By.XPATH, '//input[@name="account"]')
     # 密码输入框

@@ -4,7 +4,7 @@
 import logging
 from logging.handlers import TimedRotatingFileHandler
 import datetime
-from nmmp.common import dir_config
+from nmmp_manage.common import dir_config
 
 fmt = "%(asctime)s  %(levelname)s %(filename)s %(funcName)s [ line:%(lineno)d ] %(message)s"
 datefmt = "%Y-%m-%d %H:%M:%S"
