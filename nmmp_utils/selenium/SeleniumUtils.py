@@ -74,7 +74,7 @@ class seleniumUtils:
             raise
 
     # 等待元素出现，点击元素
-    def click_element(self, loc, img_doc,timeout=30, frequency=0.5):
+    def click_element(self, loc, img_doc, timeout=30, frequency=0.5):
         '''
         :param loc:元素定位，以元组的形式。（定位类型、定位时间）
         :param img_doc:截图的说明。例如：登录页面_输入用户名

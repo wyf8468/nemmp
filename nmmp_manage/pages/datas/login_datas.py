@@ -4,7 +4,7 @@
 from nmmp_manage.common.comm_datas import web_login_url
 
 # 正常场景
-success_data = {"user": "5104", "pwd": "z123456", "check": web_login_url}
+success_data = {"user": "27771000", "pwd": "12345@q", "check": web_login_url}
 
 # 异常场景1
 wrong_datas = [
