@@ -112,7 +112,7 @@ class seleniumUtils:
         # 查找元素
         ele = self.get_element(loc, img_doc)
         # 清空输入框内容
-        self.clear_data(loc,img_doc)
+        self.clear_data(loc, img_doc)
         # 文本输入
         logging.info("给元素{}输入文本内容：{}".format(loc, *args))
         try:
@@ -251,7 +251,7 @@ class seleniumUtils:
             raise
 
     # 清空输入框中的内容
-    def clear_data(self,loc,img_doc):
+    def clear_data(self, loc, img_doc):
         # 等待元素出现
         self.wait_eleVisible(loc, img_doc)
         # 查找一个元素

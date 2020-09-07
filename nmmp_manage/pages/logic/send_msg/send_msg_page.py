@@ -5,17 +5,21 @@
 # @Remark: 发送普通短信页面模块封装
 from nmmp_utils.selenium.SeleniumUtils import seleniumUtils
 from nmmp_manage.pages.element.send_msg.send_msg_locator import SendMsgLocator as sendMsg
-
+# from selenium import webdriver
 
 class SendMsgPage(seleniumUtils):
+    def __init__(self, driver):
+        self.driver = driver
     # 发送普通短信
-    @classmethod
-    def send_normal_msg(self, enterMode, text):
-        self.input_text(sendMsg.enter_mode, "发送普通短信_输入手机号", enterMode)
+
+    def send_normal_msg(self,receiptPhone, text):
+        self.input_text(sendMsg.receipt_phone, "发送普通短信_输入手机号", receiptPhone)
         self.input_text(sendMsg.msg_content, "发送普通短信_输入短信内容", text)
         self.click_element(sendMsg.send_now, "发送普通短信_选择立即发送方式")
-        self.click_element(sendMsg.timeing_send, "发送普通短信_选择定时发送方式")
+        # self.click_element(sendMsg.timeing_send, "发送普通短信_选择定时发送方式")
         self.click_element(sendMsg.send_submit, "发送普通短信_点击提交发送")
+        self.click_element(sendMsg.send_affirm, "确认")
+        # self.click_element(sendMsg.send_close, "取消")
     # 获取登录失败提示信息
     def get_errorMsg(self):
         return self.get_element_text(sendMsg.send_error, "提交失败提示！")
@@ -29,8 +33,8 @@ class SendMsgPage(seleniumUtils):
 # ______________________________________send_normal_msg________________________________
 
     def write_recive_nunm(self, ):
-        def __init__(self):
-            pass
+        print(1)
+
         # 第一步：选择TAB页
 
 

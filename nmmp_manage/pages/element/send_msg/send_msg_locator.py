@@ -13,15 +13,15 @@ class SendMsgLocator:
         pass
 
     # 收件号码-tab切换(父节点)
-    enter_mode = (By.XPATH, '//*[@id="pNode"]/div[1]/div[1]/div[2]/ul')
+    # enter_mode = (By.XPATH, '//*[@id="pNode"]/div[1]/div[1]/div[2]/ul')
     # 收件号码-手动输入（textarea）
-    receipt_num = (By.XPATH, '//*[@id="receiver"]')
+    receipt_phone = (By.XPATH, '//*[@id="receiver"]')
     # 收件号码-清除按钮（父节点）
-    clear_btn = (By.XPATH, '//*[@id="pNode"]/div[1]/div[1]/div[2]/div[4]')
+    # clear_btn = (By.XPATH, '//*[@id="pNode"]/div[1]/div[1]/div[2]/div[4]')
     # 短信签名（signatureId）
     msg_signatures = (By.XPATH, '//input[@id="signatureId"]')
     # 短信内容-textarea（sendContent）
-    msg_content = (By.XPATH, '')
+    msg_content = (By.XPATH, '//*[@id="sendContent"]')
     # 短信内容-退订设置（tuidingSelectID）
     msg_unsubscribe = (By.XPATH, '//*[@id="tuidingSelectID"]')
     # 短信内容-链接跟踪（linkSettingSelectID）
@@ -40,6 +40,11 @@ class SendMsgLocator:
     send_submit = (By.XPATH, '//*[@id="pNode"]/div[1]/div[2]/div[3]/div[6]/a[1]')
     # 重置
     send_reset = (By.XPATH, '//*[@id="pNode"]/div[1]/div[2]/div[3]/div[6]/a[2]')
+    # 确认
+    send_affirm = (By.XPATH, '//*[@id="msgBoxId"]/div[3]/div/a[1]')
+    # 取消
+    send_close = (By.XPATH, '//*[@id="msgBoxId"]/div[3]/div/a[2]')
+
 
 
 

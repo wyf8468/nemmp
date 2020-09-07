@@ -1,24 +1,37 @@
 
 import time
 from selenium import webdriver
-from nmmp_manage.pages.datas.sendMsg_datas import *
+from nmmp_manage.pages.datas.login_datas import success_data
+from nmmp_manage.pages.element.index.login_page_locator import *
+from nmmp_manage.pages.element.index.login_page_locator import *
+from nmmp_manage.common.comm_datas import *
+from nmmp_manage.pages.datas.login_datas import *
+
 
 class MenuUtils:
     #选择菜单
-    def select_menu(self, * menu_name):
-        driver = webdriver.Chrome()
-        driver.maximize_window()
-        driver.get('http://yxtcd.f3322.net:10080/common/')
-        time.sleep(1)
-        driver.find_element_by_xpath(menu_name).click()
-        print(driver.current_window_handle)  # 输出当前窗口句柄
-        handles = driver.window_handles  # 获取当前全部窗口句柄集合
-        print(handles)  # 输出句柄集合
+    """
+    url = web_login_url
+    driver = webdriver.Chrome()
+    driver.get(url)
+    locator = LoginPageLocator  # 元素定位
+    driver.find_element_by_xpath('//*[@id="username"]').send_keys(success_data['user'])
+    driver.find_element_by_xpath('//*[@id="form"]/div/div[2]/input[2]').send_keys(success_data['pwd'])
+    driver.find_element_by_xpath('//*[@id="validateCode"]').send_keys('1111')
+    driver.find_element_by_xpath('//*[@id="loginBtn"]').click()
+    """
+    def __init__(self, driver):
+        self.driver = driver
+    def menu_tab(self,value):
 
-        for handle in handles:  # 切换窗口
-            if handle != driver.current_window_handle:
-                print('switch to second window', handle)
-                driver.close()  # 关闭第一个窗口
-                driver.switch_to.window(handle)  # 切换到第二个窗口
+        for li in self.driver.find_elements_by_tag_name("li"):
+            print(li.text)
+            if (li.text == value):
+                print(True)
+                li.click()
 
-    select_menu(success_data['nomal_msg'])
+
+
+
+
+

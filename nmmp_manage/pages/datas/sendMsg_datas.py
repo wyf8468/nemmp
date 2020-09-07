@@ -4,14 +4,12 @@
 from nmmp_manage.common.comm_datas import web_login_url
 
 # 正常场景
-success_data = {"phone": '18722221111', "content": '节日快乐', "nomal_msg": '', "check": 'http://yxt1219.f3322.net:4042/common/frame?sid=1e41b58b18f5feccbdfa8364d34625b8'}
+success_data = {"phone": '18722221111', "content": '节日快乐-zdhmn ',  "check": web_login_url}
 
 # 异常场景1
-wrong_datas = [{"phone": '', "content": '',
-                "phone": '18722221111',
-                "content": '',
-                "phone": '', "content": '节日快乐',
-                "phone": '188', "content": '',
-                "phone": '', "content": '节日快乐',
-                "phone": '15523212423,34342323212', "content": '节日快乐'}
-    ]
+wrong_datas = [{"phone": '', "content": '', "check": "请输入号码!"},
+               {"phone": '18722221111', 'content': '', "check": "内容不能为空!"},
+               {"phone": '', "content": '节日快乐', "check": "请输入号码!"},
+               {"phone": '188', "content": '', "check": "请输入号码!"},
+
+]
