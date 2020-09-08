@@ -1,12 +1,4 @@
 
-import time
-from selenium import webdriver
-from nmmp_manage.pages.datas.login_datas import success_data
-from nmmp_manage.pages.element.index.login_page_locator import *
-from nmmp_manage.pages.element.index.login_page_locator import *
-from nmmp_manage.common.comm_datas import *
-from nmmp_manage.pages.datas.login_datas import *
-
 
 class MenuUtils:
     #选择菜单
@@ -22,13 +14,13 @@ class MenuUtils:
     """
     def __init__(self, driver):
         self.driver = driver
-    def menu_tab(self,value):
 
-        for li in self.driver.find_elements_by_tag_name("li"):
-            print(li.text)
-            if (li.text == value):
+    def menu_tab(self, label, value):
+        for meuLab in self.driver.find_elements_by_tag_name(label):
+            print(meuLab.text)
+            if (meuLab.text == value):
                 print(True)
-                li.click()
+                meuLab.click()
 
 
 

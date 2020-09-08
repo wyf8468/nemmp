@@ -3,28 +3,29 @@
 # @Time    : ${DATE} ${TIME}
 # @Author  : zhujh
 # @Described    : 登录用例
-
+import time
 import unittest
 from nmmp_manage.pages.logic.index.login_page import LoginPage
-from nmmp_manage.pages.logic.home.home_page import HomePage
+# from nmmp_manage.pages.logic.home.home_page import HomePage
 from nmmp_manage.pages.datas import login_datas as ld
 import logging
 import ddt
-from nmmp_manage.common.menuUtils import *
+from selenium import webdriver
+from nmmp_manage.common.comm_datas import *
 
 
 @ddt.ddt
 class TestLogin(unittest.TestCase):
 
     @classmethod
-    def setUpClass(self):
+    def setUpClass(cls):
         # 前置：打开浏览器，登录网页
         #self.driver = webdriver.Chrome(r"D:\files\project\nemmp\nmmp_libs\chromedriver.exe")
         #self .driver.maximize_window()
-        self.driver = webdriver.Chrome()
-        self.driver.maximize_window()
-        self.driver.get(web_login_url)
-        self.driver.implicitly_wait(5)  # 隐式等待，5秒钟内只要找到了元素就开始执行，5秒钟后未找到，就超时
+        cls.driver = webdriver.Chrome()
+        cls.driver.maximize_window()
+        cls.driver.get(web_login_url)
+        cls.driver.implicitly_wait(5)  # 隐式等待，5秒钟内只要找到了元素就开始执行，5秒钟后未找到，就超时
 
 
 
@@ -52,7 +53,7 @@ class TestLogin(unittest.TestCase):
         logging.info("*********登录用例：异常场景-登录失败*********")
         LoginPage(self.driver).login(data["user"], data["pwd"], data['rand'])
         time.sleep(2)
-        #断言：判断提示信息是否一致
+        # 断言：判断提示信息是否一致
         self.assertEqual(data["check"], LoginPage(self.driver).get_errorMsg())
 
 
