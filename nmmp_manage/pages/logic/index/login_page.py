@@ -8,10 +8,10 @@ from nmmp_manage.pages.element.index.login_page_locator import LoginPageLocator 
 class LoginPage(seleniumUtils):
 
     # 登录功能
-    def login(self, username, pwd, rand="1111"):
+    def login(self, username, pwd, rand):
         self.input_text(login.user_loc, "登录页面_输入用户名", username)
         self.input_text(login.pwd_loc, "登录页面_输入密码", pwd)
-        self.input_text(login.rand_loc, "登录页面_输入密码", rand)
+        self.input_text(login.rand_loc, "登录页面_输入验证码", rand)
         self.click_element(login.login_button_loc, "登录页面_点击登录按钮")
 
     # 获取登录失败提示信息
