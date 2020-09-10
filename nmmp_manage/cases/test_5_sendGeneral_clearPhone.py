@@ -34,7 +34,7 @@ class TestLogin(unittest.TestCase):
     # 正常用例
     def test_sendGeneral_2_success(self):
         comm_frame(self.driver).Frame('mainFrame_26')  # 获取iframe
-        logging.info("*********发送普通短信用例：正常场景-提交成功*********")
+        logging.info("*********发送普通短信用例：正常场景-清除成功*********")
         # 判断收件号码方式
         MenuUtils(self.driver).menu_tab('li', '手动输入')
         time.sleep(1)

@@ -3,9 +3,11 @@
 # @Time    : 2020/9/04
 # @Author  : wangyufeng
 # @Remark: 发送普通短信页面模块封装
+import logging
+import time
+
 from nmmp_utils.selenium.SeleniumUtils import seleniumUtils
 from nmmp_manage.pages.element.send_msg.send_msg_locator import SendMsgLocator as sendMsg
-
 
 class SendMsgPage(seleniumUtils):
     def __init__(self, driver):
@@ -16,13 +18,36 @@ class SendMsgPage(seleniumUtils):
         self.input_text(sendMsg.receipt_phone, "发送普通短信_输入手机号", receiptPhone)
         self.input_text(sendMsg.msg_content, "发送普通短信_输入短信内容", text)
 
-
     # 提交发送
     def send_submit(self):
         self.click_element(sendMsg.send_submit, "发送普通短信_点击提交发送")
-    # 获取登录失败提示信息
+
+    # 获取提交失败提示信息
     def get_errorMsg(self):
         return self.get_element_text(sendMsg.send_error, "提交失败提示！")
+
+    # 获取弹窗提示
+    def get_popMsg(self):
+        return self.get_element_text(sendMsg.send_hint, "弹窗提示！")
+    # 短信计费
+    def get_billing(self):
+        return self.get_element_text(sendMsg.msg_billing, "短信计费条数")
+
+    # 提取号码总数
+    def get_phoneNum(self):
+        return self.get_element_text(sendMsg.msg_phoneSum, "提取号码总数")
+
+    # 提取号码错误号码
+    def get_errorPhone(self):
+        return self.get_element_text(sendMsg.msg_errorPhone, "提取号码错误号码")
+
+    # 提取号码重复号码
+    def get_repetitionPhone(self):
+        return self.get_element_text(sendMsg.msg_repetitionPhone, "提取号码重复号码")
+
+    # 提取号码有效号码
+    def get_validPhone(self):
+        return self.get_element_text(sendMsg.msg_validPhone, "提取号码有效号码")
 
     # 点击发送成功-确认
     def send_suceedPop(self):
@@ -55,12 +80,10 @@ class SendMsgPage(seleniumUtils):
     def send_unsubscribe(self):
         self.click_element(sendMsg.msg_unsubscribe, "发送普通短信_点击退订设置")
 
-    # 循环退订设置内容
-    def send_retreat(self):
-        retreatStr = ["关闭", "回T退", "回T退订", "TD退订", "回N退订", "退订回T", "退订回D"]
-        for i in range(len(retreatStr) - 1):
-            print(retreatStr[i])
-
     # 链接跟踪
     def send_link(self):
         self.click_element(sendMsg.msg_link, "发送普通短信_点击链接跟踪")
+
+    # 关闭链接跟踪弹窗
+    def send_closeLink(self):
+        self.click_element(sendMsg.msg_Closelink, "发送普通短信_关闭链接跟踪")

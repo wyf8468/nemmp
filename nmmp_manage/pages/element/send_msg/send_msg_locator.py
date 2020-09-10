@@ -5,6 +5,8 @@
 # @Remark: 发送普通短信页面元素定位
 from selenium.webdriver.common.by import By
 
+
+
 class SendMsgLocator:
 
     # 收件号码-tab切换(父节点)
@@ -41,10 +43,20 @@ class SendMsgLocator:
     send_close = (By.XPATH, '//*[@id="msgBoxId"]/div[3]/div/a[2]')
     # 弹窗内的提示信息
     send_hint = (By.XPATH, '//*[@id="msgBoxId"]/div[2]/div/div/span[2]')
-
-
-
-
+    # iframe内部提示
+    send_insidHint = (By.XPATH, '//*[@id="pNode"]/div[1]/div[1]/div[2]/div[2]/div')
+    # 关闭链接跟踪
+    msg_Closelink= (By.XPATH, '//*[@id="msgBoxId"]/div[3]/div/a')
+    # 短信计费
+    msg_billing = (By.XPATH, '//*[@id="fs_number"]')
+    # 号码总数
+    msg_phoneSum = (By.XPATH, '//*[@id="phoneNumber"]')
+    # 错误号码
+    msg_errorPhone = (By.XPATH, '//*[@id="pNode"]/div[1]/div[1]/div[2]/div[4]/span/span[2]')
+    # 重复号码
+    msg_repetitionPhone = (By.XPATH, '//*[@id="pNode"]/div[1]/div[1]/div[2]/div[4]/span/span[3]')
+    # 有效号码
+    msg_validPhone = (By.XPATH, '//*[@id="pNode"]/div[1]/div[1]/div[2]/div[4]/span/span[4]')
 
 
 

@@ -33,7 +33,7 @@ class TestLogin(unittest.TestCase):
 
     def test_sendGeneral_2_success(self):
         comm_frame(self.driver).Frame('mainFrame_26')  # 获取iframe
-        logging.info("*********发送普通短信用例：正常场景-提交成功*********")
+        logging.info("*********发送普通短信用例：正常场景-定时发送提交成功*********")
         # 判断收件号码方式
         MenuUtils(self.driver).menu_tab('li', '手动输入')
         time.sleep(2)
@@ -60,7 +60,7 @@ class TestLogin(unittest.TestCase):
         # 判断收件号码方式
         MenuUtils(self.driver).menu_tab('li', '手动输入')
         time.sleep(2)
-        logging.info("*********发送普通短信用例：异常场景-提交失败*********")
+        logging.info("*********发送普通短信用例：异常场景-定时发送提交失败*********")
         # 输入收件号码和短信内容
         SendMsgPage(self.driver).send_normal_msg(msgDatas.wrong_timeingData["phone"], msgDatas.wrong_timeingData["content"])
         # SendMsgPage(self.driver).send_normal_msg(data["phone"], data["content"])
