@@ -21,6 +21,8 @@ class MenuUtils:
             if (meuLab.text == value):
                 print(True)
                 meuLab.click()
+                break
+
 
 
 
