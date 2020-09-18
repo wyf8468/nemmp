@@ -12,8 +12,8 @@ from nmmp_manage.common.comm_frame import *
 from nmmp_manage.pages.datas.login_datas import *
 from nmmp_manage.common.menuUtils import *
 from selenium import webdriver
-from nmmp_manage.pages.logic.send_msg.send_mms_page import SendMmsPage
-
+from nmmp_manage.pages.logic.send_mms.send_generalMms_page import SendMmsPage
+from nmmp_manage.pages.datas.sendMms_datas import *
 
 @ddt.ddt
 class TestLogin(unittest.TestCase):
@@ -41,8 +41,8 @@ class TestLogin(unittest.TestCase):
         MenuUtils(self.driver).menu_tab('li', '发送普通彩信')
         time.sleep(1)
         comm_frame(self.driver).Frame('mainFrame_43')  # 获取iframe
-        logging.info("*********发送彩信用例：制作彩信*********")
-        SendMmsPage(self.driver).send_Mms('18722221111')
+        logging.info("*********发送彩信用例：制发送普通彩信*********")
+        SendMmsPage(self.driver).send_Mms(makeMms_data['phone'])
         self.driver.switch_to.default_content()  # 释放iframe
         time.sleep(1)
         SendMmsPage(self.driver).send_close()
@@ -60,7 +60,6 @@ class TestLogin(unittest.TestCase):
         self.driver.switch_to.default_content()  # 释放iframe
         SendMmsPage(self.driver).send_confirm()
         time.sleep(1)
-
 
     @classmethod
     def tearDownClass(cls):

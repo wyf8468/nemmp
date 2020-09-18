@@ -12,7 +12,7 @@ from nmmp_manage.common.comm_frame import *
 from nmmp_manage.pages.datas.login_datas import *
 from nmmp_manage.common.menuUtils import *
 from selenium import webdriver
-from nmmp_manage.pages.logic.send_msg.send_makeMms_page import SendMakeMmsPage
+from nmmp_manage.pages.logic.send_mms.send_makeMms_page import SendMakeMmsPage
 from nmmp_manage.pages.datas.sendMms_datas import *
 
 
