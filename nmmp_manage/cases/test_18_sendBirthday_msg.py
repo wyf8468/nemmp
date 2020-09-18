@@ -3,8 +3,6 @@
 # @Time    : 2020/9/18
 # @Author  : wangyufeng
 # @Remark: 发送生日短信-发送生日短信用例
-import time
-import unittest
 import logging
 import ddt
 from nmmp_manage.common.comm_login import *
@@ -15,6 +13,7 @@ from selenium import webdriver
 from nmmp_manage.pages.logic.send_msg.send_birthdayMsg_page import SendBirthMsgPage as sbmp
 from nmmp_manage.common.fileUpload import *
 from nmmp_manage.pages.datas import sendMsg_datas as msg
+
 
 @ddt.ddt
 class TestLogin(unittest.TestCase):
