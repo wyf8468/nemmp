@@ -1,8 +1,8 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @Time    : 2020/9/11
+# @Time    : 2020/9/18
 # @Author  : wangyufeng
-# @Remark: 发送个性短信基本发送
+# @Remark: 发送生日短信-发送生日短信用例
 import time
 import unittest
 import logging
@@ -12,7 +12,7 @@ from nmmp_manage.common.comm_frame import *
 from nmmp_manage.pages.datas.login_datas import *
 from nmmp_manage.common.menuUtils import *
 from selenium import webdriver
-from nmmp_manage.pages.logic.send_msg.send_personalityMgs_page import SendPerMsgPage as sendPerMsg
+from nmmp_manage.pages.logic.send_msg.send_birthdayMsg_page import SendBirthMsgPage as sbmp
 from nmmp_manage.common.fileUpload import *
 from nmmp_manage.pages.datas import sendMsg_datas as msg
 
@@ -33,22 +33,27 @@ class TestLogin(unittest.TestCase):
         self.driver.refresh()
 
     # 正常用例
-
-    def test_sendGeneral_2_success(self):
+    def test_sendBirthMsg_2_success(self):
         time.sleep(2)
-        # 选择菜单到发送普通短信页面
-        MenuUtils(self.driver).menu_tab('li', '发送个性短信')
+        # 选择菜单到彩信
+        MenuUtils(self.driver).menu_tab('li', '直客短信')
+        print(111)
+        MenuUtils(self.driver).menu_tab('li', '发送生日短信')
         time.sleep(1)
-        comm_frame(self.driver).Frame('mainFrame_27')  # 获取iframe
-        # 判断收件号码方式
-        # MenuUtils(self.driver).menu_tab('li', '文件导入')
-        sendPerMsg(self.driver).send_lead()
-        logging.info("*********发送个性短信：正常发送用例*********")
-        UpLoad_File(msg.personality_success['filePath'])
-        sendPerMsg(self.driver).send_personality_msg(msg.personality_success['text'])
+        comm_frame(self.driver).Frame('mainFrame_353')  # 获取iframe
+        logging.info("*********发送生日短信：发送生日短信正常用例*********")
+        sbmp(self.driver).send_upload()
+        UpLoad_File(msg.birthday_success['filePath'])
         time.sleep(1)
+        sbmp(self.driver).send_birthday_msg(msg.birthday_success['content'])
+        MenuUtils(self.driver).menu_tab('li', msg.birthday_success['days'])
+        sbmp(self.driver).send_hour()
+        MenuUtils(self.driver).menu_tab('li', msg.birthday_success['hour'])
+        sbmp(self.driver).send_minute()
+        MenuUtils(self.driver).menu_tab('li', msg.birthday_success['imune'])
+        sbmp(self.driver).send_dispose()
         self.driver.switch_to.default_content()  # 释放iframe
-        sendPerMsg(self.driver).send_affirm()
+        sbmp(self.driver).send_affirm()
         time.sleep(1)
 
 
@@ -60,14 +65,3 @@ class TestLogin(unittest.TestCase):
 
     if __name__ == "__main__":
         unittest.main(verbosity=2)
-
-
-"""
-    @classmethod
-    def tearDownClass(cls):
-        cls.driver.close()
-
-    if __name__ == "__main__":
-        unittest.main(verbosity=2)
-
-"""

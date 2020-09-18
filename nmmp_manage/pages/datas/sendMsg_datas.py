@@ -84,3 +84,9 @@ extract_validPhone = [
     {"phone": "18722221111;15588887777;15588887777", "check": "有效号码：2"},
     {"phone": "18722221111;15588887777;1662222", "check": "有效号码：2"},
 ]
+
+# 发送个性短信
+personality_success = {'filePath': r"D:\files\模板\个性短信模板.xlsx", 'text': '个性短信呀'}
+
+# 发送生日短信
+birthday_success = {'filePath': r"D:\files\模板\生日短信模板 (1).xlsx", 'content': '生日快乐呀', 'days': '生日当天', 'hour': '8时', 'imune': '00分'}

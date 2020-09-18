@@ -41,7 +41,7 @@ class TestLogin(unittest.TestCase):
         MenuUtils(self.driver).menu_tab('li', '发送普通邮件')
         time.sleep(1)
         comm_frame(self.driver).Frame('mainFrame_105')  # 获取iframe
-        logging.info("*********发送邮件：发                          送普通邮件*********")
+        logging.info("*********发送邮件：发送普通邮件*********")
         sgmp(self.driver).send_receive(gemail_datas['address'])
         time.sleep(1)
         self.driver.switch_to.default_content()  # 释放iframe

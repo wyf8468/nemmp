@@ -15,7 +15,10 @@ class SendPerMsgPage(seleniumUtils):
     def send_personality_msg(self,  text):
         self.input_text(sendPerMsg.msg_content, "发送个性短信_输入短信内容", text)
         self.click_element(sendPerMsg.pre_processing, "发送个性短信_预处理")
-        self.click_element(sendPerMsg.send_ensure, "发送个性短信_发送")
     # 点击导入按钮
     def send_lead(self):
         self.click_element(sendPerMsg.receipt_phone, "发送个性短信_点击导入")
+
+    def send_affirm(self):
+        self.click_element(sendPerMsg.send_ensure, "发送个性短信_确认")
+
