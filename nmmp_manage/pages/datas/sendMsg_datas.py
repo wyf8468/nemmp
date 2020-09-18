@@ -1,7 +1,6 @@
 # --^_^-- coding:utf-8 --^_^--
 # @Remark:菜单测试数据
 
-from nmmp_manage.common.comm_datas import web_login_url
 
 # 正常场景文本输入
 success_data = {"phone": '18788886666', "content": '节日快乐-zdh'}

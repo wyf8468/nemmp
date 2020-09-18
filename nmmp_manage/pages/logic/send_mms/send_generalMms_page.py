@@ -4,7 +4,7 @@
 # @Author  : wangyufeng
 # @Remark: 发送普通彩信
 from nmmp_utils.selenium.SeleniumUtils import seleniumUtils
-from nmmp_manage.pages.element.send_msg.send_mms_locator import SendMmsLocator
+from nmmp_manage.pages.element.send_mms.send_generalMms_locator import SendMmsLocator
 
 
 class SendMmsPage(seleniumUtils):

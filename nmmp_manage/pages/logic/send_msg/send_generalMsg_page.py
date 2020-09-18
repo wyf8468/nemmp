@@ -7,7 +7,7 @@ import logging
 import time
 
 from nmmp_utils.selenium.SeleniumUtils import seleniumUtils
-from nmmp_manage.pages.element.send_msg.send_msg_locator import SendMsgLocator as sendMsg
+from nmmp_manage.pages.element.send_msg.send_generalMsg_locator import SendMsgLocator as sendMsg
 
 class SendMsgPage(seleniumUtils):
     def __init__(self, driver):

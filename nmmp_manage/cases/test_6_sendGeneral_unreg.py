@@ -13,7 +13,7 @@ import unittest
 from nmmp_manage.pages.datas import sendMsg_datas as msgDatas
 import logging
 import ddt
-from nmmp_manage.pages.logic.send_msg.send_msg_page import SendMsgPage
+from nmmp_manage.pages.logic.send_msg.send_generalMsg_page import SendMsgPage
 from nmmp_manage.common.menuUtils import *
 from nmmp_manage.common.comm_login import *
 from nmmp_manage.common.comm_frame import *

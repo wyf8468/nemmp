@@ -4,7 +4,7 @@
 # @Author  : wangyufeng
 # @Remark: 制作彩信模板
 from nmmp_utils.selenium.SeleniumUtils import seleniumUtils
-from nmmp_manage.pages.element.send_msg.send_makeMms_locator import SendMakeMmsLocator as sendMakeMms
+from nmmp_manage.pages.element.send_mms.send_makeMms_locator import SendMakeMmsLocator as sendMakeMms
 
 
 class SendMakeMmsPage(seleniumUtils):
