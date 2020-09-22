@@ -16,6 +16,7 @@ from nmmp_manage.pages.logic.send_msg.send_personalityMgs_page import SendPerMsg
 from nmmp_manage.common.fileUpload import *
 from nmmp_manage.pages.datas import sendMsg_datas as msg
 
+
 @ddt.ddt
 class TestLogin(unittest.TestCase):
 
@@ -33,7 +34,6 @@ class TestLogin(unittest.TestCase):
         self.driver.refresh()
 
     # 正常用例
-
     def test_sendGeneral_2_success(self):
         time.sleep(2)
         # 选择菜单到发送普通短信页面
@@ -51,9 +51,6 @@ class TestLogin(unittest.TestCase):
         sendPerMsg(self.driver).send_affirm()
         time.sleep(1)
 
-
-
-
     @classmethod
     def tearDownClass(cls):
         cls.driver.close()
@@ -62,12 +59,3 @@ class TestLogin(unittest.TestCase):
         unittest.main(verbosity=2)
 
 
-"""
-    @classmethod
-    def tearDownClass(cls):
-        cls.driver.close()
-
-    if __name__ == "__main__":
-        unittest.main(verbosity=2)
-
-"""

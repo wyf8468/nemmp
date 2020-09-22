@@ -18,6 +18,7 @@ from nmmp_manage.common.comm_datas import *
 class TestLogin(unittest.TestCase):
 
     @classmethod
+    @unittest.skip('用例 1 无条件跳过')
     def setUpClass(cls):
         # 前置：打开浏览器，登录网页
         #self.driver = webdriver.Chrome(r"D:\files\project\nemmp\nmmp_libs\chromedriver.exe")
@@ -35,6 +36,7 @@ class TestLogin(unittest.TestCase):
         #self.driver.refresh()
 
     # 正常用例
+    @unittest.skip('用例 1 无条件跳过')
     def test_login_2_success(self):
 
         logging.info("*********登录用例：正常场景-登录成功*********")
@@ -47,6 +49,7 @@ class TestLogin(unittest.TestCase):
 
 
     # 异常用例
+    @unittest.skip('用例 1 无条件跳过')
     @ddt.data(*ld.wrong_datas)
     def test_login_1_error(self, data):
         time.sleep(2)

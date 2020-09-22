@@ -22,6 +22,8 @@ import datetime
 # 2、使用discover去找到一个目录下的所有测试用例
 # 3、使用suites
 
+
+
 # TestLoader实例化
 suites = unittest.TestSuite()    # 套件实例化
 loader = unittest.TestLoader()   # 收集器实例化
@@ -29,10 +31,14 @@ loader = unittest.TestLoader()   # 收集器实例化
 # 将收集到的用例，放到测试套件当中。
 suites.addTests(loader.discover(testcases_dir))
 
+
+
 # 二、将测试报告记录到HTML文件
 # 打开一个HTML文件
 # fs = open(htmlreport_dir + '/web平台测试报告.html', 'wb')
 # 三、实例化HTML结果到用例运行器
+
+
 # runner = HTMLTestRunner(fs, title="web测试报告", description="页面功能测试！！", tester="宋小勇")
 runner = HTMLTestRunner(title="web带截图的测试报告",
                         description="页面功能测试!!",

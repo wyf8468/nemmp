@@ -89,4 +89,4 @@ extract_validPhone = [
 personality_success = {'filePath': r"D:\files\模板\个性短信模板.xlsx", 'text': '个性短信呀'}
 
 # 发送生日短信
-birthday_success = {'filePath': r"D:\files\模板\生日短信模板 (1).xlsx", 'content': '生日快乐呀', 'days': '生日当天', 'hour': '8时', 'imune': '00分'}
+birthday_success = {'filePath': r"D:\files\模板\生日短信模板.xlsx", 'content': '生日快乐呀', 'days': '生日当天', 'hour': '8时', 'imune': '00分'}

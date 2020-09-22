@@ -55,9 +55,6 @@ class TestLogin(unittest.TestCase):
         sbmp(self.driver).send_affirm()
         time.sleep(1)
 
-
-
-
     @classmethod
     def tearDownClass(cls):
         cls.driver.close()

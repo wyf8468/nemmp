@@ -18,6 +18,7 @@ from nmmp_manage.pages.datas.login_datas import *
 class TestLogin(unittest.TestCase):
 
     @classmethod
+    @unittest.skip('用例 1 无条件跳过')
     def setUpClass(cls):
         cls.driver = webdriver.Chrome()
         cls.driver.maximize_window()
@@ -31,10 +32,11 @@ class TestLogin(unittest.TestCase):
         self.driver.refresh()
 
     # 正常用例
+    @unittest.skip('用例 1 无条件跳过')
     @ddt.data(*msgDatas.extract_repetitionPhone)
     def test_sendGeneral_2_success(self, data):
         comm_frame(self.driver).Frame('mainFrame_26')  # 获取iframe
-        logging.info("*********发送普通短信用例：正常场景-开启链接跟踪提交成功*********")
+        logging.info("*********发送普通短信用例：正常场景*********")
         SendMsgPage(self.driver).send_normal_msg(data['phone'], '节日快乐')
         # 断言 判断计费条数是否一致
         time.sleep(2)

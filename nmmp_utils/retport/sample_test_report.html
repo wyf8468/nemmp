@@ -212,7 +212,7 @@ tr[id^=st]  td { background-color: #6f6f6fa1 !important ; }
 
 </head>
 <body>
-<script language="javascript" type="text/javascript">
+<script type='text/javascript'>
 output_list = Array();
 
 /* level - 0:Summary; 1:Passed; 2:Failed; 3:Errored; 4:Skiped; 5:All */
@@ -333,31 +333,31 @@ function html_escape(s) {
     return s;
 }
 
-function drawCircle(circle, pass, fail, error, skip){ 
-    var color = ["#6c6","#c60","#c00","#808080"];  
-    var data = [pass,fail,error,skip]; 
+function drawCircle(circle, pass, fail, error, skip){
+    var color = ["#6c6","#c60","#c00","#808080"];
+    var data = [pass,fail,error,skip];
     var text_arr = ["Pass", "Fail", "Error","Skip"];
 
-    var canvas = document.getElementById(circle);  
-    var ctx = canvas.getContext("2d");  
+    var canvas = document.getElementById(circle);
+    var ctx = canvas.getContext("2d");
     var startPoint=0;
     var width = 20, height = 10;
     var posX = 112 * 2 + 20, posY = 30;
     var textX = posX + width + 5, textY = posY + 10;
-    for(var i=0;i<data.length;i++){  
-        ctx.fillStyle = color[i];  
-        ctx.beginPath();  
-        ctx.moveTo(112,84);   
-        ctx.arc(112,84,84,startPoint,startPoint+Math.PI*2*(data[i]/(data[0]+data[1]+data[2])),false);  
-        ctx.fill();  
-        startPoint += Math.PI*2*(data[i]/(data[0]+data[1]+data[2]));  
-        ctx.fillStyle = color[i];  
-        ctx.fillRect(posX, posY + 20 * i, width, height);  
-        ctx.moveTo(posX, posY + 20 * i);  
+    for(var i=0;i<data.length;i++){
+        ctx.fillStyle = color[i];
+        ctx.beginPath();
+        ctx.moveTo(112,84);
+        ctx.arc(112,84,84,startPoint,startPoint+Math.PI*2*(data[i]/(data[0]+data[1]+data[2])),false);
+        ctx.fill();
+        startPoint += Math.PI*2*(data[i]/(data[0]+data[1]+data[2]));
+        ctx.fillStyle = color[i];
+        ctx.fillRect(posX, posY + 20 * i, width, height);
+        ctx.moveTo(posX, posY + 20 * i);
         ctx.font = 'bold 14px';
         ctx.fillStyle = color[i];
-        var percent = text_arr[i] + ":"+data[i];  
-        ctx.fillText(percent, textX, textY + 20 * i);  
+        var percent = text_arr[i] + ":"+data[i];
+        ctx.fillText(percent, textX, textY + 20 * i);
     }
 }
 
@@ -374,7 +374,7 @@ function show_img(obj) {
     }
     obj1.onmouseout=function(){//当鼠标光标停在图片上，则开始轮播
         start=setInterval(autoPlay,1000);
-    }    
+    }
     for (var i = 0; i < len; i++) {
         var font = document.createElement('font')
         imgyuan.appendChild(font)
@@ -390,7 +390,7 @@ function show_img(obj) {
     for (var i = 0; i < lis.length; i++) {
         funny(i);
     }
-    
+
     function autoPlay(){
         if(index>len-1){
             index=0;
@@ -429,7 +429,7 @@ function hide_img(obj){
 
 <div class="piechart">
     <div>
-        <canvas id="circle1" width="350" height="168" </canvas>
+        <canvas id="circle1" width="350" height="168"></canvas>
     </div>
 </div>
 
@@ -530,7 +530,7 @@ selenium.common.exceptions.WebDriverException: Message: 'chromedriver' executabl
 </table>
 <script>
     showCase(0,1);
-    drawCircle('circle1',0, 0, 1,  0);
+    drawCircle(%(Pass)s, %(fail)s, %(error)s);
 </script>
 
 <div id='ending'>&nbsp;</div>
