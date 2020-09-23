@@ -19,7 +19,6 @@ from nmmp_manage.common.menuUtils import *
 class TestLogin(unittest.TestCase):
 
     @classmethod
-    @unittest.skip('用例 1 无条件跳过')
     def setUpClass(cls):
         cls.driver = webdriver.Chrome()
         cls.driver.maximize_window()
@@ -32,7 +31,6 @@ class TestLogin(unittest.TestCase):
     def tearDown(self):
         self.driver.refresh()
 
-    @unittest.skip('用例 1 无条件跳过')
     def test_sendGeneral_2_success(self):
         comm_frame(self.driver).Frame('mainFrame_26')  # 获取iframe
         logging.info("*********发送普通短信用例：正常场景-定时发送提交成功*********")
@@ -55,7 +53,6 @@ class TestLogin(unittest.TestCase):
         time.sleep(2)
 
     # 异常用例
-    @unittest.skip('用例 1 无条件跳过')
     @ddt.data(*msgDatas.wrong_timeingData)
     def test_sendGeneral_1_error(self, data):
         # 获取iframe

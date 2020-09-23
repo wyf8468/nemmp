@@ -23,8 +23,6 @@ from nmmp_manage.pages.datas.login_datas import *
 @ddt.ddt
 class TestLogin(unittest.TestCase):
 
-
-    @unittest.skip('用例 1 无条件跳过')
     @classmethod
     def setUpClass(cls):
         cls.driver = webdriver.Chrome()
@@ -38,7 +36,6 @@ class TestLogin(unittest.TestCase):
     def tearDown(self):
         self.driver.refresh()
 
-    @unittest.skip('用例 1 无条件跳过')
     # 正常用例
     def test_sendGeneral_2_success(self):
         comm_frame(self.driver).Frame('mainFrame_26')  # 获取iframe
@@ -53,7 +50,6 @@ class TestLogin(unittest.TestCase):
         SendMsgPage(self.driver).send_suceedPop()  # 点击弹窗上的确认按钮
         time.sleep(2)
 
-    @unittest.skip('用例 1 无条件跳过')
     @ddt.data(*msgDatas.wrong_unreg)
     def test_sendGeneral_1_error(self, data):
         time.sleep(2)

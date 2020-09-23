@@ -45,7 +45,6 @@ class TestLogin(unittest.TestCase):
         time.sleep(2)
 
     # 异常用例
-    @unittest.skip('用例 1 无条件跳过')
     @ddt.data(*msgDatas.wrong_datas)
     def test_sendGeneral_1_error(self, data):
         # 获取iframe

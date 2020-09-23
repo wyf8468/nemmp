@@ -19,7 +19,6 @@ from nmmp_manage.common.menuUtils import *
 class TestLogin(unittest.TestCase):
 
     @classmethod
-    @unittest.skip('用例 1 无条件跳过')
     def setUpClass(cls):
         cls.driver = webdriver.Chrome()
         cls.driver.maximize_window()
@@ -32,7 +31,6 @@ class TestLogin(unittest.TestCase):
     def tearDown(self):
         self.driver.refresh()
 
-    @unittest.skip('用例 1 无条件跳过')
     def test_sendGeneral_2_success(self):
 
         comm_frame(self.driver).Frame('mainFrame_26')  # 获取iframe
