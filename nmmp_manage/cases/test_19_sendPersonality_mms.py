@@ -1,8 +1,8 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @Time    : 2020/9/15
+# @Time    : 2020/9/23
 # @Author  : wangyufeng
-# @Remark: 发送彩信-制作彩信
+# @Remark: 彩信-发送个性彩信
 import time
 import unittest
 import logging
