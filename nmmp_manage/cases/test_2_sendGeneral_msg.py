@@ -15,6 +15,7 @@ from nmmp_manage.common.comm_login import *
 from nmmp_manage.pages.datas.login_datas import *
 from nmmp_manage.common.getLists import *
 from nmmp_manage.common.connectMysql import *
+from nmmp_manage.common.get_property import *
 
 @ddt.ddt
 class TestLogin(unittest.TestCase):
@@ -45,8 +46,8 @@ class TestLogin(unittest.TestCase):
         SendMsgPage(self.driver).send_suceedPop()  # 点击弹窗上的确认按钮
         # SendMsgPage(self.driver).send_check()
         time.sleep(2)
-        # 获取列表返回值id
-        getDataId = getList(self.driver).get_list('mainFrame_28', '//*[@id="table_content"]', 'tr', 'dataid')
+        # 获取列表返回值task_id
+        getDataId = getList(self.driver).get_list('mainFrame_28', 0, '//*[@id="table_content"]', 'tr', 'dataid')
         time.sleep(8)
         SendMsgPage(self.driver).send_refresh()
         # 获取短信审核箱中提交过来的审核状态
@@ -62,14 +63,13 @@ class TestLogin(unittest.TestCase):
             comm_frame(self.driver).Frame('mainFrame_30')  # 获取iframe
             # 连接数据库循环判断已发短信是否有对应id
             Arr = connectMysql(self.driver).connect_mysql('nemmp_sms_zk', "SELECT * FROM `sms_task_contact_202010`", int(getDataId), 0)
-            for taskId in Arr:
-                msg_alreadyTr = self.driver.find_element_by_css_selector('[dataid="'+str(taskId)+'"]')  # 通过dataid属性定位元素
-                # print(msg_alreadyTr.text)
-                msg_text = msg_alreadyTr.find_element_by_name('sendStatus')
-                msg_remark = msg_alreadyTr.find_element_by_name('statusCodeCh')
-                # print(msg_text.text)
-                # print('代码注释：' + msg_remark.text)
-                time.sleep(1)
+            for id in Arr:
+                msg_alreadyTr = self.driver.find_element_by_css_selector('[dataid="'+str(id)+'"]')  # 通过dataid属性定位元素
+                # 获取属性为'sendStatus'的元素
+                msg_text = getProperty(self.driver).get_pro(msg_alreadyTr, 'sendStatus')
+                # 获取属性为'statusCodeCh'的元素
+                msg_remark = getProperty(self.driver).get_pro(msg_alreadyTr, 'statusCodeCh')
+                # 判断发送状态与预期是否相符
                 if msgDatas.success_data["codeText"] != msg_text.text:
                     print(msg_alreadyTr.text)
                     print(msg_text.text)
@@ -77,8 +77,6 @@ class TestLogin(unittest.TestCase):
                     temp = False
                     break
         self.assertTrue(temp)
-
-
 
     # 异常用例
     @unittest.skip('普通短信下发用例无条件跳过')
