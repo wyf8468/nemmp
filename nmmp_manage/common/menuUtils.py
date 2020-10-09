@@ -17,9 +17,9 @@ class MenuUtils:
 
     def menu_tab(self, label, value):
         for meuLab in self.driver.find_elements_by_tag_name(label):
-            print(meuLab.text)
+            # print(meuLab.text)
             if (meuLab.text == value):
-                print(True)
+                # print(True)
                 meuLab.click()
                 break
 

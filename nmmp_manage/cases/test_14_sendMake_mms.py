@@ -20,7 +20,7 @@ from nmmp_manage.pages.datas.sendMms_datas import *
 @ddt.ddt
 class TestLogin(unittest.TestCase):
 
-
+    @unittest.skip('制作彩信用例无条件跳过')
     @classmethod
     def setUpClass(cls):
         cls.driver = webdriver.Chrome()
@@ -35,7 +35,7 @@ class TestLogin(unittest.TestCase):
         self.driver.refresh()
 
     # 正常用例
-
+    @unittest.skip('制作彩信用例无条件跳过')
     def test_sendMakeMms_2_success(self):
         time.sleep(2)
         # 选择菜单到彩信
@@ -49,6 +49,7 @@ class TestLogin(unittest.TestCase):
         time.sleep(1)
         SendMakeMmsPage(self.driver).send_save()
         time.sleep(1)
+
 
     @classmethod
     def tearDownClass(cls):

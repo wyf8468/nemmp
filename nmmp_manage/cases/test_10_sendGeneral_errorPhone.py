@@ -16,7 +16,7 @@ from nmmp_manage.pages.datas.login_datas import *
 
 @ddt.ddt
 class TestLogin(unittest.TestCase):
-
+    @unittest.skip('用例无条件跳过')
     @classmethod
     def setUpClass(cls):
         cls.driver = webdriver.Chrome()
@@ -30,6 +30,7 @@ class TestLogin(unittest.TestCase):
     def tearDown(self):
         self.driver.refresh()
 
+    @unittest.skip('用例无条件跳过')
     # 正常用例
     @ddt.data(*msgDatas.extract_errorPhone)
     def test_sendGeneral_2_success(self, data):

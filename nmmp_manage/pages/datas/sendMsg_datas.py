@@ -3,7 +3,9 @@
 
 
 # 正常场景文本输入
-success_data = {"phone": '18788886666', "content": '节日快乐-zdh'}
+import random
+
+success_data = {"phone": '188'+''.join(random.sample("1234567890", 8))+';188'+''.join(random.sample("1234567890", 8)), "content": ''.join(random.sample("1234567890abcdefghijklmn", 10))+'-节日快乐！', 'checkText': '入库成功', 'codeText': '提交成功'}
 
 # 异常场景1文本输入
 wrong_datas = [
@@ -86,7 +88,7 @@ extract_validPhone = [
 ]
 
 # 发送个性短信
-personality_success = {'filePath': r"D:\files\模板\个性短信模板.xlsx", 'text': '个性短信呀'}
+personality_success = {'filePath': r"D:\files\模板\个性短信模板.xlsx", 'text': ''.join(random.sample("abcdefghijklmn", 10))+'-个性短信呀'}
 
 # 发送生日短信
-birthday_success = {'filePath': r"D:\files\模板\生日短信模板.xlsx", 'content': '生日快乐呀', 'days': '生日当天', 'hour': '8时', 'imune': '00分'}
+birthday_success = {'filePath': r"D:\files\模板\生日短信模板.xlsx", 'content': '生日快乐呀', 'days': ''.join(random.sample("abcdefghijklmn", 5))+'-生日当天', 'hour': '8时', 'imune': '00分'}

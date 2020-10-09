@@ -5,9 +5,13 @@
 # @Remark: 发送普通短信页面模块封装
 import logging
 import time
-
+import ddt
+import unittest
 from nmmp_utils.selenium.SeleniumUtils import seleniumUtils
 from nmmp_manage.pages.element.send_msg.send_generalMsg_locator import SendMsgLocator as sendMsg
+from nmmp_manage.common.menuUtils import *
+from nmmp_manage.pages.datas import sendMsg_datas as msgDatas
+from nmmp_manage.common.comm_frame import *
 
 class SendMsgPage(seleniumUtils):
     def __init__(self, driver):
@@ -87,3 +91,28 @@ class SendMsgPage(seleniumUtils):
     # 关闭链接跟踪弹窗
     def send_closeLink(self):
         self.click_element(sendMsg.msg_Closelink, "发送普通短信_关闭链接跟踪")
+
+    # 关闭链接跟踪弹窗
+    def send_refresh(self):
+        self.click_element(sendMsg.msg_refresh, "短信审核箱_刷新")
+
+    # 检查是否提交成功
+    def send_check(self):
+       time.sleep(15)
+       self.send_refresh()
+       msg_trone = self.driver.find_element_by_xpath('//*[@id="table_content"]/tbody/tr[1]/td[6]/span')
+       print(msg_trone.text)
+       # 断言：判断提示信息是否一致
+       self.assertEqual(msgDatas.success_data["checkText"], msg_trone.text)
+       if (msg_trone.text == "入库成功"):
+           self.driver.switch_to.default_content()  # 释放iframe
+           time.sleep(1)
+           MenuUtils(self.driver).menu_tab('li', '已发短信')
+           time.sleep(2)
+           comm_frame(self.driver).Frame('mainFrame_30')  # 获取iframe
+           msg_alreadyTrone = self.driver.find_element_by_xpath('//*[@id="table_content"]/tbody/tr[1]/td[4]/span')
+           print(msg_alreadyTrone.text)
+           msg_remark = self.driver.find_element_by_xpath('//*[@id="table_content"]/tbody/tr[1]/td[16]')
+           print('代码注释：' + msg_remark.text)
+           # 断言：判断提示信息是否一致
+           self.assertEqual(msgDatas.success_data["codeText"], msg_alreadyTrone.text)

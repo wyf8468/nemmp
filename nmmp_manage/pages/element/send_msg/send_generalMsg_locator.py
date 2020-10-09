@@ -57,6 +57,11 @@ class SendMsgLocator:
     msg_repetitionPhone = (By.XPATH, '//*[@id="pNode"]/div[1]/div[1]/div[2]/div[4]/span/span[3]')
     # 有效号码
     msg_validPhone = (By.XPATH, '//*[@id="pNode"]/div[1]/div[1]/div[2]/div[4]/span/span[4]')
+    # 刷新
+    msg_refresh = (By.XPATH, '/html/body/div[1]/div[1]/div/a[4]')
+
+
+
 
 
 

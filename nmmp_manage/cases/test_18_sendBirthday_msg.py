@@ -12,7 +12,10 @@ from nmmp_manage.common.menuUtils import *
 from selenium import webdriver
 from nmmp_manage.pages.logic.send_msg.send_birthdayMsg_page import SendBirthMsgPage as sbmp
 from nmmp_manage.common.fileUpload import *
-from nmmp_manage.pages.datas import sendMsg_datas as msg
+from nmmp_manage.pages.datas import sendMsg_datas as msgDatas
+from nmmp_manage.pages.logic.send_msg.send_generalMsg_page import SendMsgPage
+import xlrd
+import datetime
 
 
 @ddt.ddt
@@ -36,24 +39,49 @@ class TestLogin(unittest.TestCase):
         time.sleep(2)
         # 选择菜单到彩信
         MenuUtils(self.driver).menu_tab('li', '直客短信')
-        print(111)
         MenuUtils(self.driver).menu_tab('li', '发送生日短信')
         time.sleep(1)
         comm_frame(self.driver).Frame('mainFrame_353')  # 获取iframe
         logging.info("*********发送生日短信：发送生日短信正常用例*********")
         sbmp(self.driver).send_upload()
-        UpLoad_File(msg.birthday_success['filePath'])
+        UpLoad_File(msgDatas.birthday_success['filePath'])
         time.sleep(1)
-        sbmp(self.driver).send_birthday_msg(msg.birthday_success['content'])
-        MenuUtils(self.driver).menu_tab('li', msg.birthday_success['days'])
+
+        sbmp(self.driver).send_birthday_msg(msgDatas.birthday_success['content'])
+        MenuUtils(self.driver).menu_tab('li', msgDatas.birthday_success['days'])
         sbmp(self.driver).send_hour()
-        MenuUtils(self.driver).menu_tab('li', msg.birthday_success['hour'])
+        MenuUtils(self.driver).menu_tab('li', msgDatas.birthday_success['hour'])
         sbmp(self.driver).send_minute()
-        MenuUtils(self.driver).menu_tab('li', msg.birthday_success['imune'])
+        MenuUtils(self.driver).menu_tab('li', msgDatas.birthday_success['imune'])
         sbmp(self.driver).send_dispose()
         self.driver.switch_to.default_content()  # 释放iframe
         sbmp(self.driver).send_affirm()
-        time.sleep(1)
+        time.sleep(15)
+        """
+        # 读取excel文档
+        data = xlrd.open_workbook(msgDatas.birthday_success['filePath'])
+        # 查看工作表
+        data.sheet_names()
+        # 获取第一张表数据
+        tables = data.sheets()[0]
+        # 将第二行第二列日期转化为标准日期格式；
+        BirthTime = xlrd.xldate_as_datetime(tables.cell(1, 2).value, 0)
+        print(BirthTime)
+        str = '9:00'
+        date_new = datetime.strptime(BirthTime, '%Y-%m-%d %H:%M:%S').date()
+        time_new = str(BirthTime).replace(str(date_new), ' ').strip()
+        print(time_new)
+        # 获取当前时间
+        now_time = datetime.datetime.now()
+
+        # 格式化时间字符串
+        str_time = now_time.strftime("%Y-%m-%d %X")
+        print(str_time)
+        """
+
+
+
+
 
     @classmethod
     def tearDownClass(cls):

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2020/9/09
 # @Author  : wangyufeng
-# @Remark: 发送普通短信基本发送-提取号码-错误号码
+# @Remark: 发送普通短信基本发送-提取号码-有效号码
 import time
 import unittest
 from nmmp_manage.pages.datas import sendMsg_datas as msgDatas
@@ -16,7 +16,7 @@ from nmmp_manage.pages.datas.login_datas import *
 
 @ddt.ddt
 class TestLogin(unittest.TestCase):
-
+    @unittest.skip('用例无条件跳过')
     @classmethod
     def setUpClass(cls):
         cls.driver = webdriver.Chrome()
@@ -30,6 +30,7 @@ class TestLogin(unittest.TestCase):
     def tearDown(self):
         self.driver.refresh()
 
+    @unittest.skip('用例无条件跳过')
     # 正常用例
     @ddt.data(*msgDatas.extract_validPhone)
     def test_sendGeneral_2_success(self, data):
