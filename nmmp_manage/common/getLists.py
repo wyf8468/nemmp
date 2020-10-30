@@ -15,10 +15,10 @@ class getList(object):
         comm_frame(self.driver).Frame(frame)  # 获取iframe
         menu_table = self.driver.find_element_by_xpath(table)
         list = menu_table.find_elements_by_tag_name(label)
-        before_add_numbers = len(list)
-        print(before_add_numbers)
+        # before_add_numbers = len(list)
+        # print(before_add_numbers)
         getDataId = list[int(n)].get_attribute(nature)
-        print(getDataId)
+        # print(getDataId)
         return getDataId
 
 

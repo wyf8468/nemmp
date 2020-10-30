@@ -16,7 +16,8 @@ from nmmp_utils.retport.HTMLTestRunner import HTMLTestRunner
 from nmmp_manage.common.dir_config import *
 import datetime
 
-# 一、TestLoader装载测试用例
+# 一、TestLD:\files\模板\生日短信模板.xlsx
+# oader装载测试用例
 # testloader的用法
 # 1、实例化TestLoader对象
 # 2、使用discover去找到一个目录下的所有测试用例

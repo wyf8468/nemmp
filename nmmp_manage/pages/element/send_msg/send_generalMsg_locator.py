@@ -42,7 +42,7 @@ class SendMsgLocator:
     # 取消
     send_close = (By.XPATH, '//*[@id="msgBoxId"]/div[3]/div/a[2]')
     # 弹窗内的提示信息
-    send_hint = (By.XPATH, '//*[@id="msgBoxId"]/div[2]/div/div/span[2]')
+    send_hint = (By.XPATH, '//*[@id="msgBoxId"]/div[2]/div/div')
     # iframe内部提示
     send_insidHint = (By.XPATH, '//*[@id="pNode"]/div[1]/div[1]/div[2]/div[2]/div')
     # 关闭链接跟踪
@@ -59,6 +59,10 @@ class SendMsgLocator:
     msg_validPhone = (By.XPATH, '//*[@id="pNode"]/div[1]/div[1]/div[2]/div[4]/span/span[4]')
     # 刷新
     msg_refresh = (By.XPATH, '/html/body/div[1]/div[1]/div/a[4]')
+    # 短信签名
+    msg_signature = (By.XPATH, '//*[@id="signatureId"]')
+    # 项目名称
+    msg_item = (By.XPATH, '//*[@id="projectID"]')
 
 
 

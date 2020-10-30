@@ -3,6 +3,10 @@
 # @Time    : 2020/9/15
 # @Author  : wangyufeng
 # @Remark: 制作彩信模板
+import time
+
+from nmmp_manage.common.comm_frame import comm_frame
+from nmmp_manage.common.menuUtils import MenuUtils
 from nmmp_utils.selenium.SeleniumUtils import seleniumUtils
 from nmmp_manage.pages.element.send_mms.send_makeMms_locator import SendMakeMmsLocator as sendMakeMms
 
@@ -23,4 +27,13 @@ class SendMakeMmsPage(seleniumUtils):
     # 点击立即保存
     def send_save(self):
         self.click_element(sendMakeMms.mms_save, "发送彩信_制作彩信立即保存")
+
+    def func_basic(self, data1, data2, data3):
+        # 选择菜单到彩信
+        MenuUtils(self.driver).menu_tab('li', '彩信')
+        MenuUtils(self.driver).menu_tab('li', '制作彩信')
+        time.sleep(2)
+        comm_frame(self.driver).Frame('mainFrame_42')  # 获取iframe
+        self.send_makeMms(data1, data2, data3)
+
 

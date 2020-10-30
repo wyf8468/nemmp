@@ -25,5 +25,14 @@ class SendVideoMsgLocator:
     videoMsg_submit = (By.XPATH, '//*[@id="receiverForm"]/div[1]/div[3]/div[11]/a[1]')
     # 确认
     videoMsg_confirm = (By.XPATH, '//*[@id="msgBoxId"]/div[3]/div/a[1]')
-
+    # 立即发送
+    videoMsg_now = (By.XPATH, '//*[@id="receiverForm"]/div[1]/div[3]/div[9]/div[2]/div[1]/span[1]')
+    # 定时发送
+    videoMsg_timeing = (By.XPATH, '//*[@id="receiverForm"]/div[1]/div[3]/div[9]/div[2]/div[2]/span[1]')
+    # 定时时间
+    time_alarm = (By.XPATH, '//*[@id="timingTime"]')
+    # 取消发送
+    videoMsg_cancel = (By.XPATH, '//*[@id="msgBoxId"]/div[3]/div/a[2]')
+    # 刷新
+    msg_refresh = (By.XPATH, '/html/body/div[1]/div[1]/a[4]')
 

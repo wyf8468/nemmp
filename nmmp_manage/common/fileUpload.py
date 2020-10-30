@@ -66,8 +66,6 @@ def UpLoad_File(filePath):
     time.sleep(1)
     win32api.keybd_event(13, 0, 0, 0)  # (回车)
     win32api.keybd_event(13, 0, win32con.KEYEVENTF_KEYUP, 0)  # 松开按键
-    win32api.keybd_event(13, 0, 0, 0)  # (回车)
-    win32api.keybd_event(13, 0, win32con.KEYEVENTF_KEYUP, 0)
     time.sleep(2)
 
 

@@ -1,5 +1,10 @@
-from nmmp_manage.common.comm_datas import *
-from selenium import webdriver
+# -*- coding: utf-8 -*-
+# !/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2020/9/08
+# @Author  : wangyufeng
+# @Remark: 封装公共获取iframe
+
 class comm_frame:
 
     def __init__(self, driver):

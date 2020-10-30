@@ -2,7 +2,7 @@
 # @Remark:登录页面
 
 from nmmp_utils.selenium.SeleniumUtils import seleniumUtils
-from nmmp_manage.pages.element.index.login_page_locator import LoginPageLocator as login
+from nmmp_manage.pages.element.index.login_locator import LoginPageLocator as login
 
 
 class LoginPage(seleniumUtils):

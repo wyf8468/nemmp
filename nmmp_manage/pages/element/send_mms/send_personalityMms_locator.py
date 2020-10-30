@@ -25,3 +25,7 @@ class SendPersoalitynMmsLocator:
     mms_pretreatment = (By.XPATH, '//*[@id="submitGxhMmsOk"]')
     # 立即发送
     promptly_send = (By.XPATH, '//*[@id="sendGxhMms"]')
+    # 定时发送
+    timeing_send = (By.XPATH, '//*[@id="sendGxhMms"]')
+    # 平台审核箱刷新刷新
+    msg_refresh = (By.XPATH, '/html/body/div[1]/div[1]/div/a[6]')

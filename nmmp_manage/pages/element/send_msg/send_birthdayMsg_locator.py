@@ -13,7 +13,7 @@ class SendBirthMsgLocator:
     birthday_content = (By.XPATH, '//*[@id="sendContent"]')
     # 发送时间-天
     birthday_days = (By.XPATH, '//*[@id="dayId"]')
-    # 发送时间-月
+    # 发送时间-时
     birthday_hour = (By.XPATH, '//*[@id="hourId"]')
     # 发送时间-分
     birthday_minute = (By.XPATH, '//*[@id="minId"]')
