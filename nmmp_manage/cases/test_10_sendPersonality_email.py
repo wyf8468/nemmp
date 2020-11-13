@@ -31,9 +31,15 @@ class TestLogin(unittest.TestCase):
     # 正常用例
     def test_sendMakeMms_2_success(self):
         logging.info("*********发送个性邮件：正常场景*********")
+        temp = True
         spmp(self.driver).func_basic(success_pemailDatas['address'], success_pemailDatas['name'], success_pemailDatas['title'])
         spmp(self.driver).send_affirm()
         time.sleep(2)
+        time.sleep(2)
+        temp = spmp(self.driver).func_results('approvalStatusStr', '入库成功', '已发邮件', 'mainFrame_154', 'sendStatusStr',
+                                              'returnMsg', "提交成功")
+        # 断言判断与预期是否
+        self.assertTrue(temp)
 
     @classmethod
     def tearDownClass(cls):

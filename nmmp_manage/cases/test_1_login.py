@@ -6,7 +6,6 @@
 import time
 import unittest
 from nmmp_manage.pages.logic.index.login_page import LoginPage
-# from nmmp_manage.pages.logic.home.home_page import HomePage
 from nmmp_manage.pages.datas import login_datas as ld
 import logging
 import ddt

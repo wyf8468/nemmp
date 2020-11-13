@@ -24,6 +24,7 @@ class TestLogin(unittest.TestCase):
     def tearDown(self):
         self.driver.refresh()
 
+    # 正常用例
     # 立即发送
     def test_sendPerMsg_2_success(self):
         temp = True
@@ -31,12 +32,13 @@ class TestLogin(unittest.TestCase):
         logging.info("*********发送个性短信：正常发送用例*********")
         # 导入收件号码和输入短信内容
         sendPerMsg(self.driver).func_basics(msgDatas.personality_success['filePath'], msgDatas.personality_success['text'], '立即发送', msgDatas.success_data['time'], '确认发送')
-        time.sleep(2)
+        time.sleep(4)
         sendPerMsg(self.driver).func_results('approvalStatusStr', msgDatas.success_data["checkText"], '已发短信', 'mainFrame_30',   'sendStatus', 'statusCodeCh', 'statusCodeEn', msgDatas.success_data["codeText"])
         # 断言判断与预期是否一致
         self.assertTrue(temp)
 
     # 定时发送
+    # @unittest.skip('个性短信下发用例无条件跳过')
     def test_sendPerMsg_3_success(self):
         temp = True
         # 选择菜单到发送普通短信页面
@@ -57,7 +59,7 @@ class TestLogin(unittest.TestCase):
         self.assertTrue(temp)
 
     # 取消发送
-    @unittest.skip('个性短信下发用例无条件跳过')
+    # @unittest.skip('个性短信下发用例无条件跳过')
     def test_sendPerMsg_4_success(self):
         temp = True
         # 选择菜单到发送普通短信页面

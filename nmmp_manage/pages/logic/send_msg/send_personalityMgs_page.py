@@ -80,7 +80,7 @@ class SendPerMsgPage(seleniumUtils):
                 time.sleep(2)
                 comm_frame(self.driver).Frame(iframe1)
                 # 连接数据库循环判断已发短信是否有对应id
-                Arr = connectMysql(self.driver).connect_mysql('192.168.0.152', 'nemmp_sms_zk', "SELECT * FROM `sms_task_contact_202010`",
+                Arr = connectMysql(self.driver).connect_mysql('192.168.0.152', 'nemmp_sms_zk', "SELECT * FROM `sms_task_contact_202011`",
                                                           int(getDataId), 0)
                 if len(Arr) > 0:
                     for id in Arr:
@@ -109,7 +109,6 @@ class SendPerMsgPage(seleniumUtils):
         else:
             print(msg_checkTrOne.text)
             temp = False
-
         return temp
 
 

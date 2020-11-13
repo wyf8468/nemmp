@@ -76,7 +76,7 @@ class SendMmsPage(seleniumUtils):
         # 获取列表返回值task_id
         getDataId = getList(self.driver).get_list('mainFrame_45', 0, '//*[@id="table_content"]', 'tr', 'dataid')
         # 获取短信审核箱中提交过来的审核状态
-        time.sleep(12)
+        time.sleep(20)
         self.click_element(SendMmsLocator.msg_refresh, "短信审核箱_刷新")
         msg_checkTr = self.driver.find_element_by_css_selector('[dataid="' + str(getDataId) + '"]')
         msg_dispose = getProperty(self.driver).get_pro(msg_checkTr, 'handleStatusStr')
@@ -98,7 +98,11 @@ class SendMmsPage(seleniumUtils):
                         msg_alreadyTr = self.driver.find_element_by_css_selector('[dataid="' + str(id) + '"]')
                         # 获取属性为'sendStatus'的元素
                         msg_text = getProperty(self.driver).get_pro(msg_alreadyTr, nature2)
+                        msg_check = getProperty(self.driver).get_pro(msg_alreadyTr, 'statusCodeEn')
                         # 判断发送状态与预期是否相符
+                        if msg_check.text == '余额不足':
+                            print(msg_check.text)
+                            break
                         if textTwo != msg_text.text:
                             print(msg_alreadyTr.text)
                             print('状态代码：' +msg_text.text)

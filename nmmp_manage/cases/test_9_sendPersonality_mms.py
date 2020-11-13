@@ -28,14 +28,16 @@ class TestLogin(unittest.TestCase):
     # 正常用例
     def test_sendPersonMms_2_success(self):
         logging.info("*********发送个性彩信用例：正常场景*********")
+        temp = True
         SendPerMmsPage(self.driver).func_basic(success_pMmsDatas['phone'], success_pMmsDatas['title'],
                                                success_pMmsDatas['content'], success_pMmsDatas['imgs'])
         SendPerMmsPage(self.driver).send_submit()
         time.sleep(2)
         self.driver.switch_to.default_content()  # 释放iframe
         comm_frame(self.driver).Frame('mainFrame_toSendYlan')  # 获取iframe
-        SendPerMmsPage(self.driver).send_promptly()
         time.sleep(2)
+        SendPerMmsPage(self.driver).send_promptly()
+        time.sleep(4)
         temp = SendPerMmsPage(self.driver).func_results('approvalStatusStr', '入库成功', '已发彩信', 'mainFrame_47',
                                                      'statusCodeEn',
                                                      "提交成功")

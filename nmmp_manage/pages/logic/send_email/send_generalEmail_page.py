@@ -73,13 +73,13 @@ class SendGemailPage(seleniumUtils):
                 self.click_element(sgeml.gemail_extractClose, "发送普通邮件_确认发送_关闭")
                 time.sleep(2)
 
-    # 结果验证（短信审核箱、已发短信）
+    # 结果验证
     def func_results(self, nature1, textOne, redirect, iframe1, nature2, nature3, textTwo):
         temp = True
         # 获取列表返回值task_id
         getDataId = getList(self.driver).get_list('mainFrame_106', 0, '//*[@id="table_content"]', 'tr', 'dataid')
         # 获取短信审核箱中提交过来的审核状态
-        time.sleep(18)
+        time.sleep(60)
         # wait = WebDriverWait(driver, 20)
         self.click_element(sgeml.msg_refresh, "短信审核箱_刷新")
         msg_checkTr = self.driver.find_element_by_css_selector('[dataid="' + str(getDataId) + '"]')
@@ -93,7 +93,7 @@ class SendGemailPage(seleniumUtils):
                 MenuUtils(self.driver).menu_tab('li', redirect)
                 time.sleep(2)
                 comm_frame(self.driver).Frame(iframe1)
-                time.sleep(5)
+                time.sleep(20)
                 self.click_element(sgeml.video_refresh, "短信审核箱_刷新")
                 # 连接数据库循环判断已发短信是否有对应id
                 Arr = connectMysql(self.driver).connect_mysql('192.168.0.155', 'nemmp_common', "SELECT * FROM `mail_task_contact`",
@@ -116,7 +116,7 @@ class SendGemailPage(seleniumUtils):
                     print('找不到元素')
                     temp = False
             else:
-                print(msg_checkTrOne.text + '不等于入库成功（等待时间12s）')
+                print(msg_checkTrOne.text + '不等于入库成功（等待时间60s）')
                 temp = False
         else:
             print(msg_dispose.text + '不等于处理完成')

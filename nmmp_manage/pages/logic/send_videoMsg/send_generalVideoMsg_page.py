@@ -42,7 +42,7 @@ class SendVedioMsgPage(seleniumUtils):
         if value == '立即发送':
             self.click_element(videoMsgLoc.videoMsg_now, "发送普通视频短信_立即发送")
         elif value == '定时发送':
-            self.click_element(videoMsgLoc.videoMsg_now, "发送普通视频短信_定时发送")
+            self.click_element(videoMsgLoc.videoMsg_timeing, "发送普通视频短信_定时发送")
             # 取消readonly属性变为可输入
             js = 'document.getElementById("timingTime").removeAttribute("readonly")'
             self.driver.execute_script(js)
@@ -63,7 +63,7 @@ class SendVedioMsgPage(seleniumUtils):
         # 获取列表返回值task_id
         getDataId = getList(self.driver).get_list('mainFrame_1878', 0, '//*[@id="table_content"]', 'tr', 'dataid')
         # 获取短信审核箱中提交过来的审核状态
-        time.sleep(12)
+        time.sleep(24)
         self.click_element(videoMsgLoc.msg_refresh, "短信审核箱_刷新")
         msg_checkTr = self.driver.find_element_by_css_selector('[dataid="' + str(getDataId) + '"]')
         msg_dispose = getProperty(self.driver).get_pro(msg_checkTr, 'handleStatusStr')

@@ -48,7 +48,11 @@ class SendPerMmsPage(seleniumUtils):
         self.input_text(sendpMms.phone_upload, "发送个性彩信_导入收件号码", data1)
         self.click_element(sendpMms.file_upload, "发送个性彩信_导入")
         time.sleep(2)
-        SendPerMmsPage(self.driver).send_content(data2, data3, data4)
+        # SendPerMmsPage(self.driver).send_content(data2, data3, data4)
+        self.input_text(sendpMms.mms_title, "发送个性彩信_彩信标题", data2)
+        self.input_text(sendpMms.mms_content, "发送个性彩信_彩信文字", data3)
+        self.input_text(sendpMms.images_upload, "发送彩信_制作彩信本地上传", data4)
+        self.click_element(sendpMms.inset_variable, "发送个性彩信_插入变量")
         MenuUtils(self.driver).menu_tab('li', '姓名')
         time.sleep(2)
 
@@ -92,8 +96,12 @@ class SendPerMmsPage(seleniumUtils):
                         msg_alreadyTr = self.driver.find_element_by_css_selector('[dataid="' + str(id) + '"]')
                         # 获取属性为'sendStatus'的元素
                         msg_text = getProperty(self.driver).get_pro(msg_alreadyTr, nature2)
+                        msg_check = getProperty(self.driver).get_pro(msg_alreadyTr, 'statusCodeEn')
                         # 判断发送状态与预期是否相符
-                        if textTwo != msg_text.text:
+                        if msg_check.text == '余额不足':
+                            print(msg_check.text)
+                            break
+                        elif textTwo != msg_text.text:
                             print(msg_alreadyTr.text)
                             print('状态代码' +msg_text.text)
                             temp = False

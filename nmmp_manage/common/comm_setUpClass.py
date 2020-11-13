@@ -16,3 +16,4 @@ class commSetUpClass(object):
         # 先登录
         comm_login(self.driver).Loginfor(ld.success_data["user"], ld.success_data["pwd"], ld.success_data['rand'])
         return self.driver
+

@@ -228,12 +228,12 @@ class seleniumUtils:
             raise
 
     # 选择非select的下拉选择框
-    def drop_down_not_select(self,loc1,loc2,img_doc):
+    def drop_down_not_select(self, loc1, loc2, img_doc):
         # 先定位到下拉菜单
         # 等待元素出现
         self.wait_eleVisible(loc1, img_doc)
         # 查找下拉菜单元素
-        self.click_element(loc1,"下拉菜单输入框")
+        self.click_element(loc1, "下拉菜单输入框")
         logging.info("查找下拉菜单输入框成功！")
         time.sleep(2)
         # 在对下拉菜单的选项进行选择

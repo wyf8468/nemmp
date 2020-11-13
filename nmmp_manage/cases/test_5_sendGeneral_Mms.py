@@ -33,11 +33,11 @@ class TestLogin(unittest.TestCase):
         SendMmsPage(self.driver).func_basic(makeMms_data['phone'], '立即发送', makeMms_data['time'], '确认发送')
         time.sleep(2)
         temp = SendMmsPage(self.driver).func_results('approvalStatusStr', '入库成功', '已发彩信', 'mainFrame_47', 'statusCodeEn',
-                                             "提交成功")
+                                             "提交")
         # 断言判断与预期是否一致
         self.assertTrue(temp)
 
-    @unittest.skip('普通彩信下发用例无条件跳过')
+    # @unittest.skip('普通彩信下发用例无条件跳过')
     # 定时发送
     def test_sendGeneralMms_3_success(self):
         logging.info("*********发送彩信用例：发送普通彩信定时发送——确认发送*********")
@@ -56,7 +56,7 @@ class TestLogin(unittest.TestCase):
         self.assertTrue(temp)
 
     # 取消发送
-    @unittest.skip('普通彩信下发用例无条件跳过')
+    # @unittest.skip('普通彩信下发用例无条件跳过')
     def test_sendGeneralMms_4_success(self):
         logging.info("*********发送彩信用例：发送普通彩信立即发送——取消发送*********")
         SendMmsPage(self.driver).func_basic(makeMms_data['phone'], '立即发送', makeMms_data['time'], '取消发送')

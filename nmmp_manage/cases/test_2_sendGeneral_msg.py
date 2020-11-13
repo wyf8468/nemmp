@@ -1,7 +1,7 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
 # @Time    : 2020/9/07
-# @Author  : wangyufeng
+# @Author  : wangyufengmeizi
 # @Remark: 发送普通短信基本发送-立即发送成功
 import unittest
 from nmmp_manage.pages.datas import sendMsg_datas as msgDatas
@@ -26,7 +26,7 @@ class TestLogin(unittest.TestCase):
         self.driver.refresh()
 
     # ------------------------------------------------------------正常用例-------------------------------------------------------------------------------
-    @unittest.skip('普通短信下发用例无条件跳过')
+    # @unittest.skip('普通短信下发用例无条件跳过')
     # 发送普通短信基本发送 - 短信计费验证
     @ddt.data(*msgDatas.billing_datas)
     def test_sendGeneral_2_success(self, data):
@@ -34,7 +34,7 @@ class TestLogin(unittest.TestCase):
         comm_frame(self.driver).Frame('mainFrame_26')  # 获取iframe
         SendMsgPage(self.driver).send_normal_msg(msgDatas.success_data["phone"], data["content"])
 
-    @unittest.skip('普通短信下发用例无条件跳过')
+    # @unittest.skip('普通短信下发用例无条件跳过')
     # 发送普通短信基本发送 - 提取号码数验证
     @ddt.data(*msgDatas.extract_phoneNum)
     def test_sendGeneral_3_success(self, data):
@@ -46,7 +46,7 @@ class TestLogin(unittest.TestCase):
         # 断言判断与预期是否一致
         self.assertTrue(temp)
 
-    @unittest.skip('普通短信下发用例无条件跳过')
+    # @unittest.skip('普通短信下发用例无条件跳过')
     # 发送普通短信基本发送 - 双回T退订提示语验证
     @ddt.data(*msgDatas.data_unreg)
     def test_sendGeneral_4_success(self, data):
@@ -61,7 +61,7 @@ class TestLogin(unittest.TestCase):
             SendMsgPage(self.driver).send_filedPop()  # 点击弹窗上的关闭按钮
             i = i + 1
 
-    @unittest.skip('普通短信下发用例无条件跳过')
+    # @unittest.skip('普通短信下发用例无条件跳过')
     # 发送普通短信基本发送 - 开启链接跟踪提示语验证
     def test_sendGeneral_5_success(self):
         logging.info("*********发送普通短信用例：正常场景-开启链接跟踪*********")
@@ -73,7 +73,7 @@ class TestLogin(unittest.TestCase):
         # 断言判断与预期是否一致
         self.assertTrue(temp)
 
-    @unittest.skip('普通短信下发用例无条件跳过')
+    # @unittest.skip('普通短信下发用例无条件跳过')
     # 发送普通短信基本发送-点击弹窗上的取消按钮（不发送）
     def test_sendGeneral_6_success(self):
         logging.info("*********发送普通短信用例：正常场景-立即发送取消发送*********")
@@ -86,7 +86,7 @@ class TestLogin(unittest.TestCase):
         logging.info("*********发送普通短信用例：正常场景-立即发送提交成功*********")
         SendMsgPage(self.driver).func_basics(msgDatas.success_data["phone"], msgDatas.success_data["content"], msgDatas.success_data["time"], '立即发送')
         SendMsgPage(self.driver).send_suceedPop()  # 点击弹窗上的确认按钮
-        time.sleep(2)
+        time.sleep(4)
         temp = SendMsgPage(self.driver).func_results('approvalStatusStr', msgDatas.success_data["checkText"], '已发短信', 'mainFrame_30',  'sendStatus', 'statusCodeCh', 'statusCodeEn', msgDatas.success_data["codeText"])
         # 断言判断与预期是否一致
         self.assertTrue(temp)
@@ -113,7 +113,7 @@ class TestLogin(unittest.TestCase):
         self.assertTrue(temp)
 
     # ------------------------------------------------------------异常用例-------------------------------------------------------------------------------
-    @unittest.skip('普通短信下发用例无条件跳过')
+    # @unittest.skip('普通短信下发用例无条件跳过')
     @ddt.data(*msgDatas.wrong_datas)
     def test_sendGeneral_1_error(self, data):
         logging.info("*********发送普通短信用例：异常场景-立即发送提交失败*********")

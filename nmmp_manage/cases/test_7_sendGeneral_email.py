@@ -33,9 +33,9 @@ class TestLogin(unittest.TestCase):
                                      gemail_datas['time'], gemail_datas['address'],
                                      '提交发送', '确认发送')
         time.sleep(2)
-        temp = sgmp(self.driver).func_results('approvalStatusStr', '审核通过', '已发邮件', 'mainFrame_154', 'sendStatusStr',
+        temp = sgmp(self.driver).func_results('approvalStatusStr', '入库成功', '已发邮件', 'mainFrame_154', 'sendStatusStr',
                                               'returnMsg', "提交成功")
-        # 断言判断与预期是否一致
+        # 断言判断与预期是否
         self.assertTrue(temp)
 
     @classmethod

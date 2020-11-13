@@ -5,7 +5,7 @@
 # 正常场景文本输入
 import random
 
-success_data = {"phone": '188'+''.join(random.sample("1234567890", 8)), "content": ''.join(random.sample("abcdefghijklmn", 5))+'-节日快乐！', "time": '2020-10-13 10:50:55', 'checkText': '入库成功', 'checkText1': '审核通过', 'codeText': '提交成功'}
+success_data = {"phone": '188'+''.join(random.sample("1234567890", 8)), "content": ''.join(random.sample("abcdefghijklmn", 5))+'-节日快乐！', "time": '2020-11-03 10:50:55', 'checkText': '入库成功', 'checkText1': '审核通过', 'codeText': '提交成功'}
 phoneNum_data = {"check1": "1", "check2": "0", "check3": "0", "check4": "1"}
 # 清除收件号码
 success_clearPhone = {"phone": "18864562345;15522221111;18731112222;17734243211;19943432123;0952345678;13945677654;17311112222;987654321;6656789", "content": '你好'}
@@ -58,7 +58,7 @@ wrong_datas = [
 ]
 
 # 发送个性短信
-personality_success = {'filePath': r"D:\files\模板\个性短信模板.xls", 'text': ''.join(random.sample("abcdefghijklmn", 5))+'-个性短信呀', "time": '2020-10-23 10:50:55', 'checkText': '入库成功', 'sendText': '提交成功'}
+personality_success = {'filePath': r"D:\files\模板\个性短信模板.xls", 'text': ''.join(random.sample("abcdefghijklmn", 5))+'-个性短信呀', "time": '2020-11-03 10:50:55', 'checkText': '入库成功', 'sendText': '提交成功'}
 
 # 发送生日短信
-birthday_success = {'filePath': r"D:\files\模板\生日短信模板.xlsx", 'content': '生日快乐呀', 'days': '生日当天', 'hour': '8时', 'imune': '00分'}
+birthday_success = {'filePath': r"D:\files\模板\生日短信模板.xlsx", 'content': '生日快乐呀！-生日短信', 'days': '生日当天', 'hour': '8时', 'imune': '00分'}

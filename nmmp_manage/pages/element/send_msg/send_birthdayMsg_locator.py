@@ -21,6 +21,7 @@ class SendBirthMsgLocator:
     birthday_dispose = (By.XPATH, '//*[@id="sumbit"]')
     # 确认
     birthday_affirm = (By.XPATH, '//*[@id="msgBoxId"]/div[3]/div/a[1]')
-
+    # 刷新
+    msg_refresh = (By.XPATH, '/html/body/div[1]/div[1]/div/a[4]')
 
 
