@@ -17,6 +17,8 @@ class SendBirthMsgLocator:
     birthday_hour = (By.XPATH, '//*[@id="hourId"]')
     # 发送时间-分
     birthday_minute = (By.XPATH, '//*[@id="minId"]')
+    # 退订设置
+    birthday_tuid = (By.XPATH, '//*[@id="tuidingSelectID"]')
     # 预处理
     birthday_dispose = (By.XPATH, '//*[@id="sumbit"]')
     # 确认

@@ -68,7 +68,7 @@ class TestLogin(unittest.TestCase):
         temp = True
         temp = SendMsgPage(self.driver).func_linkBasics(msgDatas.success_linkData["phone"], msgDatas.success_linkData["content"], msgDatas.success_linkData["check1"], msgDatas.success_linkData["check2"])
         SendMsgPage(self.driver).send_suceedPop()  # 点击弹窗上的确认按钮
-        time.sleep(2)
+        time.sleep(4)
         temp = SendMsgPage(self.driver).func_results('approvalStatusStr', msgDatas.success_data["checkText"], '已发短信','mainFrame_30', 'sendStatus', 'statusCodeCh', 'statusCodeEn', msgDatas.success_data["codeText"])
         # 断言判断与预期是否一致
         self.assertTrue(temp)
@@ -78,6 +78,7 @@ class TestLogin(unittest.TestCase):
     def test_sendGeneral_6_success(self):
         logging.info("*********发送普通短信用例：正常场景-立即发送取消发送*********")
         SendMsgPage(self.driver).func_basics(msgDatas.success_data["phone"], msgDatas.success_data["content"], msgDatas.success_data["time"], '立即发送')
+        time.sleep(2)
         SendMsgPage(self.driver).send_filedPop()  # 点击取消按钮-关闭弹窗且不执行发送操作
 
     # 发送普通短信基本发送-提交成功

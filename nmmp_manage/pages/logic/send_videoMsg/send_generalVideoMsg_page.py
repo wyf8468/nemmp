@@ -4,7 +4,6 @@
 # @Author  : wangyufeng
 # @Remark: 发送普通视频短信页面模块封装
 import time
-
 from nmmp_manage.common.comm_frame import comm_frame
 from nmmp_manage.common.connectMysql import connectMysql
 from nmmp_manage.common.getLists import getList

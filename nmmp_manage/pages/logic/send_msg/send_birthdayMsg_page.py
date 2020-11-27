@@ -46,13 +46,16 @@ class SendBirthMsgPage(seleniumUtils):
         self.click_element(sbml.birthday_affirm, "发送生日短信_确认")
 
     def func_basic(self, data1, data2, data3, data4, data5):
-        # 选择菜单到彩信
+        # 选择菜单到生日短信
         MenuUtils(self.driver).menu_tab('li', '直客短信')
         MenuUtils(self.driver).menu_tab('li', '发送生日短信')
         time.sleep(1)
         comm_frame(self.driver).Frame('mainFrame_353')  # 获取iframe
         self.send_upload()
         UpLoad_File(data1)
+        time.sleep(2)
+        self.click_element(sbml.birthday_tuid, "退订设置")
+        MenuUtils(self.driver).menu_tab('li', '关闭')
         time.sleep(2)
         self.send_birthday_msg(data2)
         MenuUtils(self.driver).menu_tab('li', data3)
@@ -62,6 +65,25 @@ class SendBirthMsgPage(seleniumUtils):
         MenuUtils(self.driver).menu_tab('li', data5)
         self.send_dispose()
         self.driver.switch_to.default_content()  # 释放iframe
+
+    # 返回短信审核箱需要验证的列
+    def func_checkResults(self, nature):
+        # 获取列表返回值task_id
+        getDataId = getList(self.driver).get_list('mainFrame_28', 0, '//*[@id="table_content"]', 'tr', 'dataid')
+        # 获取短信审核箱中提交过来的审核状态
+        time.sleep(5)
+        # 点击刷新按钮
+        self.click_element(sbml.msg_refresh, "短信审核箱_刷新")
+        msg_checkTr = self.driver.find_element_by_css_selector('[dataid="' + str(getDataId) + '"]')
+        msg_content = getProperty(self.driver).get_pro(msg_checkTr, 'sendContentStr')
+        print(msg_content.text)
+        print(msgDatas.birthday_success['content'])
+        if msg_content.text == msgDatas.birthday_success['content']:
+            msg_checkTrOne = getProperty(self.driver).get_pro(msg_checkTr, nature)
+        else:
+            print('短信审核箱里没有提交过来的生日短信任务')
+
+        return msg_checkTrOne
 
     # 结果验证（短信审核箱、已发短信）
     def func_results(self, nature1, textOne, redirect, iframe1, nature2, nature3, nature4, textTwo, ):
@@ -75,7 +97,9 @@ class SendBirthMsgPage(seleniumUtils):
         msg_checkTrOne = getProperty(self.driver).get_pro(msg_checkTr, nature1)
         msg_dispose = getProperty(self.driver).get_pro(msg_checkTr, 'handleStatusStr')
         msg_content = getProperty(self.driver).get_pro(msg_checkTr, 'sendContentStr')
-        if msg_content == msgDatas.birthday_success['content']:
+        print(msg_content)
+        print(msgDatas.birthday_success['content'])
+        if msg_content.text == msgDatas.birthday_success['content']:
             if msg_dispose.text == '处理成功':
                 # 判断审核状态是否与预期一致
                 if msg_checkTrOne.text == textOne:

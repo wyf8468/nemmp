@@ -33,7 +33,7 @@ class TestLogin(unittest.TestCase):
                                       msgDatas.birthday_success['hour'], msgDatas.birthday_success['imune'])
         sbmp(self.driver).send_affirm()
         time.sleep(2)
-        """
+
         # 读取excel文档
         tables = editFiles(self.driver).edit_file(msgDatas.birthday_success['filePath'], 0)
         # 将第二行第二列日期转化为标准日期格式；
@@ -42,13 +42,16 @@ class TestLogin(unittest.TestCase):
         # 提取日期时间中的日期
         birthTime_new = datetime.datetime.strptime(str(birthTime), '%Y-%m-%d %H:%M:%S').date()
         print(birthTime_new)
-        """
-        time.sleep(4)
-        temp = sbmp(self.driver).func_results('approvalStatusStr', msgDatas.success_data["checkText"], '已发短信',
-                                                     'mainFrame_30', 'sendStatus', 'statusCodeCh', 'statusCodeEn',
-                                                     msgDatas.success_data["codeText"])
+
+        time.sleep(8)
+        #temp = sbmp(self.driver).func_results('approvalStatusStr', '审核通过', '已发短信',
+                                                     #'mainFrame_30', 'sendStatus', 'statusCodeCh', 'statusCodeEn',
+                                                    #msgDatas.success_data["codeText"])
+        msg_checkTrOne = sbmp(self.driver).func_checkResults('approvalStatusStr')
+        self.assertEqual(msgDatas.success_data["checkText1"], msg_checkTrOne.text)
+
         # 断言判断与预期是否一致
-        self.assertTrue(temp)
+        #self.assertTrue(temp)
 
     @classmethod
     def tearDownClass(cls):
