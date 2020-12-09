@@ -50,7 +50,7 @@ class TestLogin(unittest.TestCase):
         time.sleep(2)
 
     @unittest.skip('制作视频短信模板用例无条件跳过')
-    def test_sendMakeVideo_4_success(self):
+    def test_sendMakeVideo_5_success(self):
         logging.info("*********制作视频短信用例：先文本在图片*********")
         SendMVedioMsgPage(self.driver).func_basic(makeVideo_datas['name'], 3, makeVideo_datas['content'], makeVideo_datas['imgPath'], '确认')
         time.sleep(2)

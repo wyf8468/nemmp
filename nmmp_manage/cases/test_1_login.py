@@ -17,7 +17,7 @@ from nmmp_manage.common.comm_datas import *
 class TestLogin(unittest.TestCase):
 
     @classmethod
-    @unittest.skip('用例无条件跳过')
+    # @unittest.skip('用例无条件跳过')
     def setUpClass(cls):
         # 前置：打开浏览器，登录网页
         cls.driver = webdriver.Chrome()
@@ -30,7 +30,7 @@ class TestLogin(unittest.TestCase):
         self.driver.refresh()
 
     # 正常用例
-    @unittest.skip('用例无条件跳过')
+    # @unittest.skip('用例无条件跳过')
     def test_login_2_success(self):
         logging.info("*********登录用例：正常场景-登录成功*********")
         # 步骤：登录页面-登录操作
@@ -46,7 +46,7 @@ class TestLogin(unittest.TestCase):
             self.assertEqual(ld.success_data["check"], LoginPage(self.driver).get_errorMsg())
 
     # 异常用例
-    @unittest.skip('用例无条件跳过')
+    # @unittest.skip('用例无条件跳过')
     @ddt.data(*ld.wrong_datas)
     def test_login_1_error(self, data):
         time.sleep(2)

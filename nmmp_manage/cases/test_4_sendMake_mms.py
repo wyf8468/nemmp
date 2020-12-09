@@ -16,7 +16,7 @@ from nmmp_manage.pages.datas.sendMms_datas import *
 @ddt.ddt
 class TestLogin(unittest.TestCase):
 
-    @unittest.skip('制作彩信用例无条件跳过')
+    # @unittest.skip('制作彩信用例无条件跳过')
     @classmethod
     def setUpClass(self):
         csuc = commSetUpClass()
@@ -27,7 +27,7 @@ class TestLogin(unittest.TestCase):
         self.driver.refresh()
 
     # 正常用例
-    @unittest.skip('制作彩信用例无条件跳过')
+    # @unittest.skip('制作彩信用例无条件跳过')
     def test_sendMakeMms_2_success(self):
         logging.info("*********发送彩信用例：制作彩信*********")
         SendMakeMmsPage(self.driver).func_basic(makeMms_data['title'], makeMms_data['content'], makeMms_data['imgs'])

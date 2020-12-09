@@ -31,7 +31,7 @@ class TestLogin(unittest.TestCase):
         logging.info("*********发送视频短信用例：发送普通视频短信*********")
         svmp(self.driver).func_basic(suceess_datas['phone'], '立即发送', suceess_datas['time'], '确认发送')
         time.sleep(5)
-        # temp = svmp(self.driver).func_results('approvalStatusStr', '入库成功', '已发视频短信', 'mainFrame_1888', 'statusCode', 'remark','提交失败')
+        temp = svmp(self.driver).func_results('approvalStatusStr', '入库成功', '已发视频短信', 'mainFrame_1888', 'statusCode', 'remark','提交失败')
         # 断言判断与预期是否一致
         self.assertTrue(temp)
 
