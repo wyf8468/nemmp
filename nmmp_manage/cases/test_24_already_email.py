@@ -1,13 +1,13 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @Time    : 2020/12/1
+# @Time    : 2020/12/23
 # @Author  : wangyufeng
-# @Remark: 直客短信-短信审核箱
+# @Remark: 电子邮件-已发邮件用例
 import unittest
 import logging
 import ddt
 from nmmp_manage.common.comm_setUpClass import commSetUpClass
-from nmmp_manage.pages.logic.send_msg.send_approvalMsg_page import SendApprovalMsgPage as samp
+from nmmp_manage.pages.logic.send_email.alreadyEmail_page import alreadyEmailPage as adep
 
 
 @ddt.ddt
@@ -23,42 +23,42 @@ class TestLogin(unittest.TestCase):
     def tearDown(self):
         self.driver.refresh()
 
-    # 正常用例
-    # @unittest.skip('短信审核箱-取消按钮')
-    def test_sendMakeVideo_1_error(self):
+    # 异常用例
+    # @unittest.skip('已发邮件-预览')
+    def test_alreadyEmail_1_error(self):
         temp = True
-        logging.info("*********短信审核箱——取消按钮，直接点击取消*********")
-        temp = samp(self.driver).func_cancel(0)
+        logging.info("*********已发邮件——预览，直接点击*********")
+        temp = adep(self.driver).func_preview(0)
         # print(temp)
         self.driver.implicitly_wait(2)
         # 断言判断与预期是否一致
         self.assertTrue(temp)
 
-    # @unittest.skip('短信审核箱-修改重发')
-    def test_sendMakeVideo_2_error(self):
+    # @unittest.skip('已发邮件-重新发送')
+    def test_alreadyEmail_2_error(self):
         temp = True
-        logging.info("*********短信审核箱——修改重发，直接点击修改重发*********")
-        temp = samp(self.driver).func_alterRetry(0)
+        logging.info("*********已发邮件——重新发送，直接点击*********")
+        temp = adep(self.driver).func_alterSend(0)
         # print(temp)
         self.driver.implicitly_wait(2)
         # 断言判断与预期是否一致
         self.assertTrue(temp)
 
-    # @unittest.skip('短信审核箱-号码明细')
-    def test_sendMakeVideo_3_error(self):
+    # @unittest.skip('已发邮件-软退一键重发')
+    def test_alreadyEmail_3_error(self):
         temp = True
-        logging.info("*********短信审核箱——号码明细，直接点击号码明细*********")
-        temp = samp(self.driver).func_phoneDetail(0)
+        logging.info("*********已发邮件——软退一键重发，直接点击*********")
+        temp = adep(self.driver).func_keyResend(0)
         # print(temp)
         self.driver.implicitly_wait(2)
         # 断言判断与预期是否一致
         self.assertTrue(temp)
+    # @unittest.skip('已发邮件-导出')
 
-    # @unittest.skip('短信审核箱-导出当前页选中的记录')
-    def test_sendMakeVideo_3_error(self):
+    def test_alreadyEmail_4_error(self):
         temp = True
-        logging.info("*********短信审核箱——导出，直接导出当前页选中数据*********")
-        temp = samp(self.driver).func_derive(0)
+        logging.info("*********已发邮件——导出，直接点击*********")
+        temp = adep(self.driver).func_derive(0)
         # print(temp)
         self.driver.implicitly_wait(2)
         # 断言判断与预期是否一致

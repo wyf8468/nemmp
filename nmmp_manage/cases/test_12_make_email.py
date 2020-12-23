@@ -9,7 +9,7 @@ import logging
 import ddt
 from nmmp_manage.common.comm_setUpClass import commSetUpClass
 from nmmp_manage.pages.datas.sendEmail_datas import *
-from nmmp_manage.pages.logic.send_email.send_makeEmail_page import *
+from nmmp_manage.pages.logic.send_email.makeEmail_page import *
 
 
 @ddt.ddt
@@ -27,16 +27,16 @@ class TestLogin(unittest.TestCase):
 
     # 正常用例
     @unittest.skip('制作普通邮件模板用例无条件跳过')
-    def test_sendMakeVideo_1_success(self):
+    def test_makeEmail_1_success(self):
         logging.info("*********制作电子邮件模板用例：普通邮件模板*********")
-        title = SendMemailPage(self.driver).func_basic('普通邮件', makeVideo_datas['title'], makeVideo_datas['content'])
+        title = makemailPage(self.driver).func_basic('普通邮件', makeVideo_datas['title'], makeVideo_datas['content'])
         print(title)
         self.driver.implicitly_wait(2)
 
     @unittest.skip('制作个性邮件模板用例无条件跳过')
-    def test_sendMakeVideo_2_success(self):
+    def test_makeEmail_2_success(self):
         logging.info("*********制作电子邮件模板用例：个性邮件模板*********")
-        title = SendMemailPage(self.driver).func_basic('个性邮件', makeVideo_datas['title'], makeVideo_datas['content'])
+        title = makemailPage(self.driver).func_basic('个性邮件', makeVideo_datas['title'], makeVideo_datas['content'])
         print(title)
         self.driver.implicitly_wait(2)
 

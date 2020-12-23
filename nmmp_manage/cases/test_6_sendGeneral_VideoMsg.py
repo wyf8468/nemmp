@@ -9,6 +9,7 @@ import ddt
 from nmmp_manage.common.comm_login import *
 from nmmp_manage.common.comm_setUpClass import commSetUpClass
 from nmmp_manage.common.comm_timeCompare import date_compare
+from nmmp_manage.common.menuUtils import MenuUtils
 from nmmp_manage.pages.logic.send_videoMsg.send_generalVideoMsg_page import SendVedioMsgPage as svmp
 from nmmp_manage.pages.datas.sendVideoMsg_datas import *
 
@@ -30,7 +31,11 @@ class TestLogin(unittest.TestCase):
         temp = True
         logging.info("*********发送视频短信用例：发送普通视频短信*********")
         svmp(self.driver).func_basic(suceess_datas['phone'], '立即发送', suceess_datas['time'], '确认发送')
-        time.sleep(5)
+        self.driver.implicitly_wait(5)
+        # 选择菜单到彩信
+        MenuUtils(self.driver).menu_tab('li', '视频短信')
+        MenuUtils(self.driver).menu_tab('li', '视频短信审核箱')
+        time.sleep(2)
         temp = svmp(self.driver).func_results('approvalStatusStr', '入库成功', '已发视频短信', 'mainFrame_1888', 'statusCode', 'remark','提交失败')
         # 断言判断与预期是否一致
         self.assertTrue(temp)
@@ -42,7 +47,7 @@ class TestLogin(unittest.TestCase):
         time_timeing = svmp(self.driver).func_basic(suceess_datas['phone'], '定时发送', suceess_datas['time'], '确认发送')
         # 获取当前时间
         flag = date_compare(time_timeing)  # 两个日期进行比较，为真返回True，反之flag
-        time.sleep(5)
+        self.driver.implicitly_wait(5)
         if flag == False:
             temp = svmp(self.driver).func_results('approvalStatusStr', '入库成功', '已发视频短信',
                                                   'mainFrame_1888', 'statusCode', 'remark',

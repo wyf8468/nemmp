@@ -32,7 +32,7 @@ class TestLogin(unittest.TestCase):
         sbmp(self.driver).func_basic(msgDatas.birthday_success['filePath'], msgDatas.birthday_success['content'], msgDatas.birthday_success['days'],
                                       msgDatas.birthday_success['hour'], msgDatas.birthday_success['imune'])
         sbmp(self.driver).send_affirm()
-        time.sleep(2)
+        self.driver.implicitly_wait(5)
 
         # 读取excel文档
         tables = editFiles(self.driver).edit_file(msgDatas.birthday_success['filePath'], 0)
@@ -43,7 +43,7 @@ class TestLogin(unittest.TestCase):
         birthTime_new = datetime.datetime.strptime(str(birthTime), '%Y-%m-%d %H:%M:%S').date()
         print(birthTime_new)
 
-        time.sleep(8)
+        self.driver.implicitly_wait(5)
         #temp = sbmp(self.driver).func_results('approvalStatusStr', '审核通过', '已发短信',
                                                      #'mainFrame_30', 'sendStatus', 'statusCodeCh', 'statusCodeEn',
                                                     #msgDatas.success_data["codeText"])

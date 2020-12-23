@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2020/12/2
 # @Author  : wangyufeng
-# @Remark: 发送生日短信页面元素定位
+# @Remark: 生日短信页面元素定位
 from selenium.webdriver.common.by import By
 
 
-class SendApprovalMsgLocator:
+class approvalMsgLocator:
     # 取消
     approvalMsg_cancel = (By.XPATH, '/html/body/div[1]/div[1]/div/a[1]')
     # 修改重发

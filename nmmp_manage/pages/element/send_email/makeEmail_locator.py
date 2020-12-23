@@ -6,7 +6,7 @@
 from selenium.webdriver.common.by import By
 
 
-class SendMemailLocator:
+class makemailLocator:
     # 模板名称
     memail_tile = (By.XPATH, '//*[@id="mailTemplateName"]')
     # 选择普通

@@ -8,10 +8,10 @@ import time
 from nmmp_manage.common.comm_frame import comm_frame
 from nmmp_manage.common.menuUtils import MenuUtils
 from nmmp_utils.selenium.SeleniumUtils import seleniumUtils
-from nmmp_manage.pages.element.send_mms.send_makeMms_locator import SendMakeMmsLocator as sendMakeMms
+from nmmp_manage.pages.element.send_mms.makeMms_locator import makeMmsLocator as sendMakeMms
 
 
-class SendMakeMmsPage(seleniumUtils):
+class makeMmsPage(seleniumUtils):
     def __init__(self, driver):
         self.driver = driver
 

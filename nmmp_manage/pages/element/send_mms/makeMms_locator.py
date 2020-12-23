@@ -7,7 +7,7 @@ from selenium.webdriver.common.by import By
 
 
 
-class SendMakeMmsLocator:
+class makeMmsLocator:
 
     # 彩信标题
     mms_title = (By.XPATH, '//*[@id="cxtitle"]')

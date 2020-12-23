@@ -6,7 +6,7 @@
 from selenium.webdriver.common.by import By
 
 
-class SendMakeVMsgLocator:
+class makeVMsgLocator:
     # 输入标题
     videoMsg_name = (By.XPATH, '//*[@id="videoName"]')
     # 输入文本内容

@@ -29,7 +29,7 @@ class TestLogin(unittest.TestCase):
         self.driver.refresh()
 
     # 正常用例
-    def test_sendMakeMms_2_success(self):
+    def test_sendPEmail_2_success(self):
         logging.info("*********发送个性邮件：正常场景*********")
         temp = True
         spmp(self.driver).func_basic(success_pemailDatas['address'], success_pemailDatas['name'], success_pemailDatas['title'])

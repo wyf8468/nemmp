@@ -47,5 +47,6 @@ runner = HTMLTestRunner(title="web带截图的测试报告",
                         retry=2,
                         save_last_try=True)
 
+
 # 四、运行测试套件
 runner.run(suites)

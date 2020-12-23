@@ -9,14 +9,14 @@ import logging
 import ddt
 from nmmp_manage.common.comm_login import *
 from nmmp_manage.common.comm_setUpClass import commSetUpClass
-from nmmp_manage.pages.logic.send_mms.send_makeMms_page import SendMakeMmsPage
+from nmmp_manage.pages.logic.send_mms.makeMms_page import makeMmsPage
 from nmmp_manage.pages.datas.sendMms_datas import *
 
 
 @ddt.ddt
 class TestLogin(unittest.TestCase):
 
-    # @unittest.skip('制作彩信用例无条件跳过')
+    @unittest.skip('制作彩信用例无条件跳过')
     @classmethod
     def setUpClass(self):
         csuc = commSetUpClass()
@@ -27,12 +27,12 @@ class TestLogin(unittest.TestCase):
         self.driver.refresh()
 
     # 正常用例
-    # @unittest.skip('制作彩信用例无条件跳过')
-    def test_sendMakeMms_2_success(self):
+    @unittest.skip('制作彩信用例无条件跳过')
+    def test_makeMms_2_success(self):
         logging.info("*********发送彩信用例：制作彩信*********")
-        SendMakeMmsPage(self.driver).func_basic(makeMms_data['title'], makeMms_data['content'], makeMms_data['imgs'])
+        makeMmsPage(self.driver).func_basic(makeMms_data['title'], makeMms_data['content'], makeMms_data['imgs'])
         time.sleep(2)
-        SendMakeMmsPage(self.driver).send_save()
+        makeMmsPage(self.driver).send_save()
 
     @classmethod
     def tearDownClass(cls):

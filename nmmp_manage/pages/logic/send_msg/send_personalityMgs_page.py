@@ -21,7 +21,7 @@ class SendPerMsgPage(seleniumUtils):
     def func_basics(self, data1, data2, value, time_timeing, vauleOne):
         # 进入发送个性短信页面
         MenuUtils(self.driver).menu_tab('li', '发送个性短信')
-        time.sleep(2)
+        self.driver.implicitly_wait(5)
         comm_frame(self.driver).Frame('mainFrame_27')  # 获取iframe
         # 点击导入按钮
         self.click_element(sendPerMsg.receipt_phone, "发送个性短信_点击导入")
@@ -39,7 +39,7 @@ class SendPerMsgPage(seleniumUtils):
         # 预处理
         self.click_element(sendPerMsg.pre_processing, "发送个性短信_预处理")
         self.driver.switch_to.default_content()  # 释放iframe
-        time.sleep(2)
+        self.driver.implicitly_wait(5)
         if vauleOne == '确认发送':
             # 点击弹窗上的确认按钮
             self.click_element(sendPerMsg.send_ensure, "发送个性短信_确认")
@@ -66,7 +66,7 @@ class SendPerMsgPage(seleniumUtils):
         # 获取列表返回值task_id
         getDataId = getList(self.driver).get_list('mainFrame_28', 0, '//*[@id="table_content"]', 'tr', 'dataid')
         # 获取短信审核箱中提交过来的审核状态
-        time.sleep(8)
+        time.sleep(12)
         self.click_element(sendPerMsg.msg_refresh, "短信审核箱_刷新")
         msg_checkTr = self.driver.find_element_by_css_selector('[dataid="' + str(getDataId) + '"]')
         msg_checkTrOne = getProperty(self.driver).get_pro(msg_checkTr, nature1)
@@ -75,9 +75,9 @@ class SendPerMsgPage(seleniumUtils):
             # 判断审核状态是否与预期一致
             if msg_checkTrOne.text == textOne:
                 self.driver.switch_to.default_content()  # 释放iframe
-                time.sleep(2)
+                self.driver.implicitly_wait(5)
                 MenuUtils(self.driver).menu_tab('li', redirect)
-                time.sleep(2)
+                self.driver.implicitly_wait(5)
                 comm_frame(self.driver).Frame(iframe1)
                 # 连接数据库循环判断已发短信是否有对应id
                 Arr = connectMysql(self.driver).connect_mysql('192.168.0.152', 'nemmp_sms_zk', "SELECT * FROM `sms_task_contact_202012` ORDER BY create_date DESC",

@@ -6,7 +6,6 @@
 from selenium.webdriver.common.by import By
 
 
-
 class SendVideoMsgLocator:
 
     # 输入收件人
@@ -35,4 +34,6 @@ class SendVideoMsgLocator:
     videoMsg_cancel = (By.XPATH, '//*[@id="msgBoxId"]/div[3]/div/a[2]')
     # 刷新
     msg_refresh = (By.XPATH, '/html/body/div[1]/div[1]/a[4]')
+    # 列表条数
+    videoMsg_count = (By.XPATH, '//*[@id="pageing"]/div[2]/span[1]')
 

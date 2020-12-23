@@ -11,10 +11,10 @@ from nmmp_manage.common.getLists import getList
 from nmmp_manage.common.get_property import getProperty
 from nmmp_manage.common.menuUtils import MenuUtils
 from nmmp_utils.selenium.SeleniumUtils import seleniumUtils
-from nmmp_manage.pages.element.send_videoMsg.send_makeVideoMsg_locator import SendMakeVMsgLocator as smvl
+from nmmp_manage.pages.element.send_videoMsg.makeVideoMsg_locator import makeVMsgLocator as smvl
 
 
-class SendMVedioMsgPage(seleniumUtils):
+class makeVedioMsgPage(seleniumUtils):
     def __init__(self, driver):
         self.driver = driver
 

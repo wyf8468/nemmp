@@ -6,10 +6,10 @@
 from nmmp_manage.common.comm_frame import comm_frame
 from nmmp_manage.common.menuUtils import MenuUtils
 from nmmp_utils.selenium.SeleniumUtils import seleniumUtils
-from nmmp_manage.pages.element.send_email.send_makeEmail_locator import SendMemailLocator as smel
+from nmmp_manage.pages.element.send_email.makeEmail_locator import makemailLocator as smel
 
 
-class SendMemailPage(seleniumUtils):
+class makemailPage(seleniumUtils):
     def __init__(self, driver):
         self.driver = driver
 

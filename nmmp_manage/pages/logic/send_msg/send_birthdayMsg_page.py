@@ -49,14 +49,14 @@ class SendBirthMsgPage(seleniumUtils):
         # 选择菜单到生日短信
         MenuUtils(self.driver).menu_tab('li', '直客短信')
         MenuUtils(self.driver).menu_tab('li', '发送生日短信')
-        time.sleep(1)
+        self.driver.implicitly_wait(5)
         comm_frame(self.driver).Frame('mainFrame_353')  # 获取iframe
         self.send_upload()
         UpLoad_File(data1)
-        time.sleep(2)
+        self.driver.implicitly_wait(5)
         self.click_element(sbml.birthday_tuid, "退订设置")
         MenuUtils(self.driver).menu_tab('li', '关闭')
-        time.sleep(2)
+        self.driver.implicitly_wait(5)
         self.send_birthday_msg(data2)
         MenuUtils(self.driver).menu_tab('li', data3)
         self.send_hour()
@@ -91,7 +91,7 @@ class SendBirthMsgPage(seleniumUtils):
         # 获取列表返回值task_id
         getDataId = getList(self.driver).get_list('mainFrame_28', 0, '//*[@id="table_content"]', 'tr', 'dataid')
         # 获取短信审核箱中提交过来的审核状态
-        time.sleep(8)
+        time.sleep(12)
         self.click_element(sbml.msg_refresh, "短信审核箱_刷新")
         msg_checkTr = self.driver.find_element_by_css_selector('[dataid="' + str(getDataId) + '"]')
         msg_checkTrOne = getProperty(self.driver).get_pro(msg_checkTr, nature1)
@@ -104,9 +104,9 @@ class SendBirthMsgPage(seleniumUtils):
                 # 判断审核状态是否与预期一致
                 if msg_checkTrOne.text == textOne:
                     self.driver.switch_to.default_content()  # 释放iframe
-                    time.sleep(2)
+                    self.driver.implicitly_wait(5)
                     MenuUtils(self.driver).menu_tab('li', redirect)
-                    time.sleep(2)
+                    self.driver.implicitly_wait(5)
                     comm_frame(self.driver).Frame(iframe1)
                     # 连接数据库循环判断已发短信是否有对应id
                     Arr = connectMysql(self.driver).connect_mysql('192.168.0.152', 'nemmp_sms_zk', "SELECT * FROM `sms_task_birthday_contact`", int(getDataId), 0)

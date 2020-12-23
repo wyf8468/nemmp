@@ -32,7 +32,7 @@ class TestLogin(unittest.TestCase):
         logging.info("*********发送个性短信：正常发送用例*********")
         # 导入收件号码和输入短信内容
         sendPerMsg(self.driver).func_basics(msgDatas.personality_success['filePath'], msgDatas.personality_success['text'], '立即发送', msgDatas.success_data['time'], '确认发送')
-        time.sleep(4)
+        self.driver.implicitly_wait(5)
         sendPerMsg(self.driver).func_results('approvalStatusStr', msgDatas.success_data["checkText"], '已发短信', 'mainFrame_30',   'sendStatus', 'statusCodeCh', 'statusCodeEn', msgDatas.success_data["codeText"])
         # 断言判断与预期是否一致
         self.assertTrue(temp)
@@ -45,10 +45,10 @@ class TestLogin(unittest.TestCase):
         logging.info("*********发送个性短信：正常发送用例*********")
         # 导入收件号码和输入短信内容
         time_timeing = sendPerMsg(self.driver).func_basics(msgDatas.personality_success['filePath'], msgDatas.personality_success['text'], '定时发送', msgDatas.personality_success['time'], '确认发送')
-        time.sleep(2)
+        self.driver.implicitly_wait(5)
         # 获取当前时间
         flag = date_compare(time_timeing)  # 两个日期进行比较，为真返回True，反之flag
-        time.sleep(2)
+        self.driver.implicitly_wait(5)
         if flag == False:
             temp = sendPerMsg(self.driver).func_results('approvalStatusStr', msgDatas.success_data["checkText"], '已发短信', 'mainFrame_30', 'sendStatus', 'statusCodeCh', 'statusCodeEn',
                                              msgDatas.success_data["codeText"])
